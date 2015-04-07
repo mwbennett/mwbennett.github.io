@@ -1,4 +1,74 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Mark Bennett</title><description>Software developer, music lover, and 2015 Venture for America Fellow. </description><link>http://mwbennett.github.io/</link><generator>Ghost 0.5</generator><lastBuildDate>Wed, 01 Apr 2015 01:29:18 GMT</lastBuildDate><atom:link href="http://mwbennett.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Blogging at Hack Reactor</title><description>&lt;p&gt;&lt;em&gt;HR W1D4&lt;/em&gt;&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Mark Bennett</title><description>Software developer, music lover, and 2015 Venture for America Fellow. </description><link>http://mwbennett.github.io/</link><generator>Ghost 0.5</generator><lastBuildDate>Tue, 07 Apr 2015 21:16:07 GMT</lastBuildDate><atom:link href="http://mwbennett.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Growing Pains Part I: Acclimating to Scopes and Hoisting</title><description>&lt;p&gt;&lt;em&gt;W2D4&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost me time as I work through sprints. First up, JavaScript scopes and hoisting. &lt;/p&gt;
+
+&lt;h4 id="scopes"&gt;Scopes&lt;/h4&gt;
+
+&lt;p&gt;Variable scopes are portions of a program where the binding between a variable and a value is valid. Put another way, scopes determine which variables you have access to at any particular point in your code. In JavaScript, functions (and only functions) each create their own variable scope. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var outerScope = function(){          // creates a new scope  
+  var outer = 1;
+  // code here can access 'outer'
+  var innerScope = function(){        // creates another new scope 
+    var inner = 2;
+    if (inner){                       // does NOT create a new scope 
+      var greeting = "hello";
+    }
+    // code here can access 'outer', 'inner', and 'greeting'
+    console.log(greeting);  // logs "hello" 
+  }
+  // code here CANNOT access 'inner' or 'greeting'
+}
+// code here CANNOT access 'outer', 'inner', or 'greeting'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  &lt;/p&gt;
+
+&lt;h4 id="variablehoisting"&gt;Variable hoisting&lt;/h4&gt;
+
+&lt;p&gt;Variable hoisting is pretty simple: at run time, all variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var petName = function(){  
+  var name = "Bessie";
+  var lastName = function(){
+    var sentence = name + " is my name."
+    var name = "Paul";
+    return sentence;
+  }
+  return lastName();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It's not unreasonable to expect that &lt;code&gt;petName&lt;/code&gt; would return "Bessie is my name." But it doesn't. To see why, let's check out how the code looks to the interpreter after variable hoisting occurs:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var petName;                  // petName declaration is hoisted  
+petName = function(){  
+  var name;                   // name declaration is hoisted 
+  var lastName;               // lastName declaration is hoisted  
+  name = "Bessie";           
+  lastName = function(){     
+    var sentence;             // sentence declaration is hoisted 
+    var name;                 // name declaration is hoisted 
+    sentence = name + " is my name.";  
+    name = "Paul";            
+    return sentence; 
+  }
+  return lastName();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And herein lies the problem. Rather than retaining the value assigned to &lt;code&gt;name&lt;/code&gt; in the outer scope until it gets reassigned, variable hoisting moves the declaration for &lt;code&gt;name&lt;/code&gt; to the top of the internal &lt;code&gt;lastName&lt;/code&gt; scope. So when &lt;code&gt;sentence&lt;/code&gt; is assigned, &lt;code&gt;name&lt;/code&gt; has been declared in the internal scope, but not yet assigned. End result: as written, &lt;code&gt;lastName&lt;/code&gt; will return "undefined is my name."  &lt;/p&gt;
+
+&lt;h4 id="avoidingsnags"&gt;Avoiding snags&lt;/h4&gt;
+
+&lt;p&gt;A couple ways I've learned to avoid making silly mistakes involving scopes and hoisting:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Declare variables at the top of their respective scopes.&lt;/strong&gt; Basically, I do the variable hoisting myself. This is ugly, and probably not recommended, but it's an easy way to see the code the way the interpreter will read it. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Include all function dependencies as inputs.&lt;/strong&gt; When I write functions that rely on variables that are declared in outer scopes, it quickly becomes challenging to keep track of where variables are originating. Instead, I include those variables as function inputs.  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  &lt;/p&gt;</description><link>http://mwbennett.github.io/2015/03/31/javascript-scopes/</link><guid isPermaLink="false">a84f8d57-d809-460a-9ae7-ffaefd525b47</guid><dc:creator>Mark Bennett</dc:creator><pubDate>Wed, 01 Apr 2015 01:28:34 GMT</pubDate></item><item><title>Blogging at Hack Reactor</title><description>&lt;p&gt;&lt;em&gt;HR W1D4&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I've officially arrived in the trenches at &lt;a href="http://www.hackreactor.com/"&gt;Hack Reactor&lt;/a&gt;! My first few days here have been a complete blur, in the best possible way. Despite my having impossibly high expectations coming into the program, thus far Hack Reactor has completely lived up to the hype. &lt;/p&gt;
 

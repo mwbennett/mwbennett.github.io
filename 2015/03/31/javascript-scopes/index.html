@@ -1,7 +1,8 @@
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>JavaScript Basics: Scopes and Hoisting (HR W1D6*)</title>
+	<title>Growing Pains Part I: Acclimating to Scopes and Hoisting</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,12 +10,14 @@
 	<link rel="shortcut icon" href="http://faviconist.com/icons/302cbc875e8b615ce41151e4572b1ed5/favicon.ico">
 	<!-- stylesheets -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400%7CRoboto+Slab" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=13f670dcd9">
-	<link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=13f670dcd9">
-	<link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=13f670dcd9">
-	<link rel="stylesheet" type="text/css" href="../../../../assets/css/hl-styles/monokai_sublime.css?v=13f670dcd9">
+	<link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=9c12f830db">
+	<link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=9c12f830db">
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=9c12f830db">
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/hl-styles/monokai_sublime.css?v=9c12f830db">
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=9c12f830db">  
+	<script type="text/javascript" src="../../../../assets/js/prism.js?v=9c12f830db"></script> 
 	<!-- only for demo -->
-	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=13f670dcd9"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=9c12f830db"> -->
 	<script>
 	/*====================================================
 	  THEME SETTINGS & GLOBAL VARIABLES
@@ -50,15 +53,15 @@
     
     <meta property="og:site_name" content="Mark Bennett">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="JavaScript Basics: Scopes and Hoisting (HR W1D6*)">
-    <meta property="og:description" content="[SOME INTRODUCTION] Fine-Tuning the Basics Through both its applicant screening process and the significant precourse curriculum requirements for incoming students, Hack Reactor does an excellent job in ensuring that students arrive with a solid foundational understand of JavaScript fundamentals on...">
+    <meta property="og:title" content="Growing Pains Part I: Acclimating to Scopes and Hoisting">
+    <meta property="og:description" content="W2D4 This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost...">
     <meta property="og:url" content="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
     <meta property="article:published_time" content="2015-04-01T01:28:34.177Z">
-    <meta property="article:modified_time" content="2015-04-01T01:28:34.176Z">
+    <meta property="article:modified_time" content="2015-04-07T21:15:54.015Z">
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="JavaScript Basics: Scopes and Hoisting (HR W1D6*)">
-    <meta name="twitter:description" content="[SOME INTRODUCTION] Fine-Tuning the Basics Through both its applicant screening process and the significant precourse curriculum requirements for incoming students, Hack Reactor does an excellent job in ensuring that students arrive with a solid foundational understand of JavaScript fundamentals on...">
+    <meta name="twitter:title" content="Growing Pains Part I: Acclimating to Scopes and Hoisting">
+    <meta name="twitter:description" content="W2D4 This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost...">
     <meta name="twitter:url" content="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
     
     <script type="application/ld+json">
@@ -73,11 +76,11 @@
         "url": "http://mwbennett.github.io/author/mark",
         "sameAs": ""
     },
-    "headline": "JavaScript Basics: Scopes and Hoisting (HR W1D6*)",
+    "headline": "Growing Pains Part I: Acclimating to Scopes and Hoisting",
     "url": "http://mwbennett.github.io/2015/03/31/javascript-scopes/",
     "datePublished": "2015-04-01T01:28:34.177Z",
-    "dateModified": "2015-04-01T01:28:34.176Z",
-    "description": "[SOME INTRODUCTION] Fine-Tuning the Basics Through both its applicant screening process and the significant precourse curriculum requirements for incoming students, Hack Reactor does an excellent job in ensuring that students arrive with a solid foundational understand of JavaScript fundamentals on..."
+    "dateModified": "2015-04-07T21:15:54.015Z",
+    "description": "W2D4 This week, I&#x27;m blogging about a few of the coding-related growing pains I&#x27;ve noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost..."
 }
     </script>
 
@@ -128,7 +131,7 @@
 				<!-- start post -->
 				<article id="5" class="post">
 					<div class="post-head">
-						<h2 class="post-title">JavaScript Basics: Scopes and Hoisting (HR W1D6*)</h2>
+						<h2 class="post-title">Growing Pains Part I: Acclimating to Scopes and Hoisting</h2>
 						<div class="post-meta">
 							<span class="author">By <a href="../../../../author/mark/">Mark Bennett</a></span> •
 							<span class="date">March 31, 2015</span> •
@@ -136,11 +139,77 @@
 						</div>
 					</div>
 					<div class="post-content">
-						<p>[SOME INTRODUCTION]</p>
+						<p><em>W2D4</em></p>
 
-<h4 id="finetuningthebasics">Fine-Tuning the Basics</h4>
+<p>This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost me time as I work through sprints. First up, JavaScript scopes and hoisting. </p>
 
-<p>Through both its applicant screening process and the significant precourse curriculum requirements for incoming students, Hack Reactor does an excellent job in ensuring that students arrive with a solid foundational understand of JavaScript fundamentals on Day 1. In the first few </p>
+<h4 id="scopes">Scopes</h4>
+
+<p>Variable scopes are portions of a program where the binding between a variable and a value is valid. Put another way, scopes determine which variables you have access to at any particular point in your code. In JavaScript, functions (and only functions) each create their own variable scope. </p>
+
+<pre><code class="language-javascript">var outerScope = function(){          // creates a new scope  
+  var outer = 1;
+  // code here can access 'outer'
+  var innerScope = function(){        // creates another new scope 
+    var inner = 2;
+    if (inner){                       // does NOT create a new scope 
+      var greeting = "hello";
+    }
+    // code here can access 'outer', 'inner', and 'greeting'
+    console.log(greeting);  // logs "hello" 
+  }
+  // code here CANNOT access 'inner' or 'greeting'
+}
+// code here CANNOT access 'outer', 'inner', or 'greeting'
+</code></pre>
+
+<p>When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  </p>
+
+<h4 id="variablehoisting">Variable hoisting</h4>
+
+<p>Variable hoisting is pretty simple: at run time, all variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  </p>
+
+<pre><code class="language-javascript">var petName = function(){  
+  var name = "Bessie";
+  var lastName = function(){
+    var sentence = name + " is my name."
+    var name = "Paul";
+    return sentence;
+  }
+  return lastName();
+}
+</code></pre>
+
+<p>It's not unreasonable to expect that <code>petName</code> would return "Bessie is my name." But it doesn't. To see why, let's check out how the code looks to the interpreter after variable hoisting occurs:  </p>
+
+<pre><code class="language-javascript">var petName;                  // petName declaration is hoisted  
+petName = function(){  
+  var name;                   // name declaration is hoisted 
+  var lastName;               // lastName declaration is hoisted  
+  name = "Bessie";           
+  lastName = function(){     
+    var sentence;             // sentence declaration is hoisted 
+    var name;                 // name declaration is hoisted 
+    sentence = name + " is my name.";  
+    name = "Paul";            
+    return sentence; 
+  }
+  return lastName();
+}
+</code></pre>
+
+<p>And herein lies the problem. Rather than retaining the value assigned to <code>name</code> in the outer scope until it gets reassigned, variable hoisting moves the declaration for <code>name</code> to the top of the internal <code>lastName</code> scope. So when <code>sentence</code> is assigned, <code>name</code> has been declared in the internal scope, but not yet assigned. End result: as written, <code>lastName</code> will return "undefined is my name."  </p>
+
+<h4 id="avoidingsnags">Avoiding snags</h4>
+
+<p>A couple ways I've learned to avoid making silly mistakes involving scopes and hoisting:</p>
+
+<ul>
+<li><strong>Declare variables at the top of their respective scopes.</strong> Basically, I do the variable hoisting myself. This is ugly, and probably not recommended, but it's an easy way to see the code the way the interpreter will read it. </li>
+<li><strong>Include all function dependencies as inputs.</strong> When I write functions that rely on variables that are declared in outer scopes, it quickly becomes challenging to keep track of where variables are originating. Instead, I include those variables as function inputs.  </li>
+</ul>
+
+<p>Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  </p>
 					</div>
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
@@ -149,7 +218,7 @@
 							<ul class="share-icons">
 								<!-- twitter -->
 								<li>
-									<a href="https://twitter.com/share?text=JavaScript%20Basics%3A%20Scopes%20and%20Hoisting%20(HR%20W1D6*)&amp;url=http://mwbennett.github.io/2015/03/31/javascript-scopes/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
+									<a href="https://twitter.com/share?text=Growing%20Pains%20Part%20I%3A%20Acclimating%20to%20Scopes%20and%20Hoisting&amp;url=http://mwbennett.github.io/2015/03/31/javascript-scopes/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
 								</li>
 								<!-- facebook -->
 								<li>
@@ -295,7 +364,7 @@
 			</div>
 		</div>
 		<!-- end copyright section -->	<a href="index.html#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-		<script src="../../../../public/jquery.js?v=13f670dcd9"></script>
+		<script src="../../../../public/jquery.js?v=9c12f830db"></script>
 		<!-- scripts -->
 		<script type="text/javascript">
 	    /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -306,10 +375,10 @@
 	        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 	    }());
 	    </script>
-		<script src="../../../../assets/js/jquery.fitvids.js?v=13f670dcd9"></script>
-		<script src="../../../../assets/js/bootstrap.min.js?v=13f670dcd9"></script>
-		<script src="../../../../assets/js/jflickrfeed.min.js?v=13f670dcd9"></script>
-		<script src="../../../../assets/js/highlight.pack.js?v=13f670dcd9"></script>
-		<script src="../../../../assets/js/main.js?v=13f670dcd9"></script>
+		<script src="../../../../assets/js/jquery.fitvids.js?v=9c12f830db"></script>
+		<script src="../../../../assets/js/bootstrap.min.js?v=9c12f830db"></script>
+		<script src="../../../../assets/js/jflickrfeed.min.js?v=9c12f830db"></script>
+		<script src="../../../../assets/js/highlight.pack.js?v=9c12f830db"></script>
+		<script src="../../../../assets/js/main.js?v=9c12f830db"></script>
 		<!-- Add your analytic code below --></body>
 	
