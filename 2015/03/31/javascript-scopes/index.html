@@ -10,14 +10,12 @@
 	<link rel="shortcut icon" href="http://faviconist.com/icons/302cbc875e8b615ce41151e4572b1ed5/favicon.ico">
 	<!-- stylesheets -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400%7CRoboto+Slab" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=9c12f830db">
-	<link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../../../assets/css/hl-styles/monokai_sublime.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=9c12f830db">  
-	<script type="text/javascript" src="../../../../assets/js/prism.js?v=9c12f830db"></script> 
+	<link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=43bc360793">
+	<link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=43bc360793">
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=43bc360793">
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/hl-styles/monokai_sublime.css?v=43bc360793"> 
 	<!-- only for demo -->
-	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=9c12f830db"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=43bc360793"> -->
 	<script>
 	/*====================================================
 	  THEME SETTINGS & GLOBAL VARIABLES
@@ -40,7 +38,7 @@
 	
 	//	6. Twitter Setting
 	var twitter_url = 'https://twitter.com/bennettwmark';
-	var twitter_widget_id = '428617072633843712';
+	var twitter_widget_id = '590607239616016384';
 	var number_of_tweet = 3;
 	
 	//	7. Mailchimp signup form Setting
@@ -57,7 +55,9 @@
     <meta property="og:description" content="W2D4 This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost...">
     <meta property="og:url" content="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
     <meta property="article:published_time" content="2015-04-01T01:28:34.177Z">
-    <meta property="article:modified_time" content="2015-04-07T21:15:54.015Z">
+    <meta property="article:modified_time" content="2015-04-11T05:18:28.996Z">
+    <meta property="article:tag" content="Hack Reactor">
+    <meta property="article:tag" content="JavaScript">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Growing Pains Part I: Acclimating to Scopes and Hoisting">
@@ -79,7 +79,8 @@
     "headline": "Growing Pains Part I: Acclimating to Scopes and Hoisting",
     "url": "http://mwbennett.github.io/2015/03/31/javascript-scopes/",
     "datePublished": "2015-04-01T01:28:34.177Z",
-    "dateModified": "2015-04-07T21:15:54.015Z",
+    "dateModified": "2015-04-11T05:18:28.996Z",
+    "keywords": "Hack Reactor, JavaScript",
     "description": "W2D4 This week, I&#x27;m blogging about a few of the coding-related growing pains I&#x27;ve noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost..."
 }
     </script>
@@ -87,7 +88,7 @@
     <meta name="generator" content="Ghost 0.5">
     <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="../../../../rss/index.html">
 </head>
-<body class="post-template">
+<body class="post-template tag-hack-reactor tag-javascript">
 	<!-- start header -->
 	<header class="main-header">
 		<div class="container">
@@ -113,10 +114,11 @@
 						</span>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
-					<ul class="menu">
-						<li><a href="../../../../">Home</a></li>
-						<li><a href="../../../../author/mark/">About</a></li>
-					</ul>				</div>
+		            
+		            <ul class="menu">
+		            	<li><a href="../../../../">Home</a></li>
+		            	<li><a href="../../../../author/mark/">About</a></li>
+		            </ul>				</div>
 				</div>
 			</div>
 		</div>
@@ -129,7 +131,7 @@
 			<!-- start main post area -->
 			<div class="col-md-8 main-content">
 				<!-- start post -->
-				<article id="5" class="post">
+				<article id="5" class="post tag-hack-reactor tag-javascript">
 					<div class="post-head">
 						<h2 class="post-title">Growing Pains Part I: Acclimating to Scopes and Hoisting</h2>
 						<div class="post-meta">
@@ -156,18 +158,18 @@
       var greeting = "hello";
     }
     // code here can access 'outer', 'inner', and 'greeting'
-    console.log(greeting);  // logs "hello" 
-  }
+    console.log(greeting);            // logs "hello" 
+  };
   // code here CANNOT access 'inner' or 'greeting'
-}
+};
 // code here CANNOT access 'outer', 'inner', or 'greeting'
 </code></pre>
 
 <p>When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  </p>
 
-<h4 id="variablehoisting">Variable hoisting</h4>
+<h4 id="hoisting">Hoisting</h4>
 
-<p>Variable hoisting is pretty simple: at run time, all variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  </p>
+<p>Hoisting is pretty simple: at run time, all function and variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that within each scope, all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  </p>
 
 <pre><code class="language-javascript">var petName = function(){  
   var name = "Bessie";
@@ -175,9 +177,9 @@
     var sentence = name + " is my name."
     var name = "Paul";
     return sentence;
-  }
+  };
   return lastName();
-}
+};
 </code></pre>
 
 <p>It's not unreasonable to expect that <code>petName</code> would return "Bessie is my name." But it doesn't. To see why, let's check out how the code looks to the interpreter after variable hoisting occurs:  </p>
@@ -193,9 +195,9 @@ petName = function(){
     sentence = name + " is my name.";  
     name = "Paul";            
     return sentence; 
-  }
+  };
   return lastName();
-}
+};
 </code></pre>
 
 <p>And herein lies the problem. Rather than retaining the value assigned to <code>name</code> in the outer scope until it gets reassigned, variable hoisting moves the declaration for <code>name</code> to the top of the internal <code>lastName</code> scope. So when <code>sentence</code> is assigned, <code>name</code> has been declared in the internal scope, but not yet assigned. End result: as written, <code>lastName</code> will return "undefined is my name."  </p>
@@ -213,6 +215,8 @@ petName = function(){
 					</div>
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
+							<i class="fa fa-folder-open-o"></i>
+							<a href="../../../../tag/hack-reactor/">Hack Reactor</a>,<a href="../../../../tag/javascript/">JavaScript</a>
 						</div>
 						<div class="pull-right share">
 							<ul class="share-icons">
@@ -268,7 +272,10 @@ petName = function(){
 						    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 					</div>
 					<!-- end disqus comment -->				</div>
-				<!-- end post -->
+				<!-- start prev next wrap -->
+				<div class="prev-next-wrap clearfix">
+						 
+				</div>				<!-- end post -->
 			</div>
 			<!-- end main post area -->
 			<!-- start sidebar -->
@@ -292,7 +299,7 @@ petName = function(){
 				</div>
 				<!-- end widget -->	<!-- start widget -->
 				<div class="widget">
-					<h4 class="title">Recent Posts</h4>
+					<h4 class="title">Recent Post</h4>
 					<div class="content recent-post"></div>
 				</div>
 				<!-- end widget -->	<!-- start tag cloud widget -->
@@ -300,7 +307,12 @@ petName = function(){
 					<h4 class="title">Tags</h4>
 					<div class="content tag-cloud"></div>
 				</div>
-				<!-- end tag cloud widget --></div>
+				<!-- end tag cloud widget -->	<!-- start widget -->
+				<div class="widget">
+					<h4 class="title">Twitter</h4>
+					<div class="content twitter"></div>
+				</div>
+				<!-- end widget --></div>
 			<!-- end sidebar -->		</div>
 	</div>
 </section>
@@ -314,7 +326,7 @@ petName = function(){
 					<div class="col-sm-4">
 						<!-- start widget -->
 						<div class="widget">
-							<h4 class="title">Recent Posts</h4>
+							<h4 class="title">Recent Post</h4>
 							<div class="content recent-post"></div>
 						</div>
 						<!-- end widget -->				</div>
@@ -358,13 +370,13 @@ petName = function(){
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						© 2015, <a href="http://mwbennett.github.io">Mark Bennett</a>.  All Rights Reserved
+						Copyright © 2015, <a href="http://mwbennett.github.io">Mark Bennett</a>. 
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end copyright section -->	<a href="index.html#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-		<script src="../../../../public/jquery.js?v=9c12f830db"></script>
+		<script src="../../../../public/jquery.js?v=43bc360793"></script>
 		<!-- scripts -->
 		<script type="text/javascript">
 	    /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -375,10 +387,10 @@ petName = function(){
 	        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 	    }());
 	    </script>
-		<script src="../../../../assets/js/jquery.fitvids.js?v=9c12f830db"></script>
-		<script src="../../../../assets/js/bootstrap.min.js?v=9c12f830db"></script>
-		<script src="../../../../assets/js/jflickrfeed.min.js?v=9c12f830db"></script>
-		<script src="../../../../assets/js/highlight.pack.js?v=9c12f830db"></script>
-		<script src="../../../../assets/js/main.js?v=9c12f830db"></script>
+		<script src="../../../../assets/js/jquery.fitvids.js?v=43bc360793"></script>
+		<script src="../../../../assets/js/bootstrap.min.js?v=43bc360793"></script>
+		<script src="../../../../assets/js/jflickrfeed.min.js?v=43bc360793"></script>
+		<script src="../../../../assets/js/highlight.pack.js?v=43bc360793"></script>
+		<script src="../../../../assets/js/main.js?v=43bc360793"></script>
 		<!-- Add your analytic code below --></body>
 	

@@ -10,14 +10,12 @@
 	<link rel="shortcut icon" href="http://faviconist.com/icons/302cbc875e8b615ce41151e4572b1ed5/favicon.ico">
 	<!-- stylesheets -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400%7CRoboto+Slab" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css?v=9c12f830db">
-	<link rel="stylesheet" href="../../assets/css/font-awesome.min.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../assets/css/screen.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../assets/css/hl-styles/monokai_sublime.css?v=9c12f830db">
-	<link rel="stylesheet" type="text/css" href="../../assets/css/prism.css?v=9c12f830db">  
-	<script type="text/javascript" src="../../assets/js/prism.js?v=9c12f830db"></script> 
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css?v=43bc360793">
+	<link rel="stylesheet" href="../../assets/css/font-awesome.min.css?v=43bc360793">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/screen.css?v=43bc360793">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/hl-styles/monokai_sublime.css?v=43bc360793"> 
 	<!-- only for demo -->
-	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=9c12f830db"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="/assets/demo-assets/css/colpick.css?v=43bc360793"> -->
 	<script>
 	/*====================================================
 	  THEME SETTINGS & GLOBAL VARIABLES
@@ -40,7 +38,7 @@
 	
 	//	6. Twitter Setting
 	var twitter_url = 'https://twitter.com/bennettwmark';
-	var twitter_widget_id = '428617072633843712';
+	var twitter_widget_id = '590607239616016384';
 	var number_of_tweet = 3;
 	
 	//	7. Mailchimp signup form Setting
@@ -79,10 +77,11 @@
 						</span>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
-					<ul class="menu">
-						<li><a href="../../">Home</a></li>
-						<li><a href="index.html">About</a></li>
-					</ul>				</div>
+		            
+		            <ul class="menu">
+		            	<li><a href="../../">Home</a></li>
+		            	<li><a href="index.html">About</a></li>
+		            </ul>				</div>
 				</div>
 			</div>
 		</div>
@@ -105,11 +104,10 @@
 					</div>
 					<div class="bio">Software developer with a focus on full-stack JavaScript. 2015 Venture for America Fellow. Hack Reactor student. Wesleyan grad. Oakland native. Lover of music, basketball, and the outdoors.</div>
 				</div>				<!-- start post -->
-				<article id="5" class="post">
+				<article id="5" class="post tag-hack-reactor tag-javascript">
 					<div class="post-head">
 						<h2 class="post-title"><a href="../../2015/03/31/javascript-scopes/">Growing Pains Part I: Acclimating to Scopes and Hoisting</a></h2>
 						<div class="post-meta">
-							<span class="author">By <a href="index.html">Mark Bennett</a></span> •
 							<span class="date">March 31, 2015</span> •
 							<span class="comment-count"><a href="../../2015/03/31/javascript-scopes/index.html#disqus_thread">0 Comments</a></span>
 						</div>
@@ -124,6 +122,8 @@
 					</div>
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
+							<i class="fa fa-folder-open-o"></i>
+							<a href="../../tag/hack-reactor/">Hack Reactor</a>,<a href="../../tag/javascript/">JavaScript</a>
 						</div>
 						<div class="pull-right share">
 							<ul class="share-icons">
@@ -151,7 +151,6 @@
 					<div class="post-head">
 						<h2 class="post-title"><a href="../../2015/03/26/blogging-at-hack-reactor/">Blogging at Hack Reactor</a></h2>
 						<div class="post-meta">
-							<span class="author">By <a href="index.html">Mark Bennett</a></span> •
 							<span class="date">March 26, 2015</span> •
 							<span class="comment-count"><a href="../../2015/03/26/blogging-at-hack-reactor/index.html#disqus_thread">0 Comments</a></span>
 						</div>
@@ -197,7 +196,6 @@
 					<div class="post-head">
 						<h2 class="post-title"><a href="../../2015/01/26/hello-world/">Hello World</a></h2>
 						<div class="post-meta">
-							<span class="author">By <a href="index.html">Mark Bennett</a></span> •
 							<span class="date">January 26, 2015</span> •
 							<span class="comment-count"><a href="../../2015/01/26/hello-world/index.html#disqus_thread">0 Comments</a></span>
 						</div>
@@ -263,7 +261,7 @@
 				</div>
 				<!-- end widget -->	<!-- start widget -->
 				<div class="widget">
-					<h4 class="title">Recent Posts</h4>
+					<h4 class="title">Recent Post</h4>
 					<div class="content recent-post"></div>
 				</div>
 				<!-- end widget -->	<!-- start tag cloud widget -->
@@ -271,7 +269,12 @@
 					<h4 class="title">Tags</h4>
 					<div class="content tag-cloud"></div>
 				</div>
-				<!-- end tag cloud widget --></div>
+				<!-- end tag cloud widget -->	<!-- start widget -->
+				<div class="widget">
+					<h4 class="title">Twitter</h4>
+					<div class="content twitter"></div>
+				</div>
+				<!-- end widget --></div>
 			<!-- end sidebar -->		</div>
 	</div>
 </section>
@@ -285,7 +288,7 @@
 					<div class="col-sm-4">
 						<!-- start widget -->
 						<div class="widget">
-							<h4 class="title">Recent Posts</h4>
+							<h4 class="title">Recent Post</h4>
 							<div class="content recent-post"></div>
 						</div>
 						<!-- end widget -->				</div>
@@ -329,13 +332,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						© 2015, <a href="http://mwbennett.github.io">Mark Bennett</a>.  All Rights Reserved
+						Copyright © 2015, <a href="http://mwbennett.github.io">Mark Bennett</a>. 
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end copyright section -->	<a href="index.html#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-		<script src="../../public/jquery.js?v=9c12f830db"></script>
+		<script src="../../public/jquery.js?v=43bc360793"></script>
 		<!-- scripts -->
 		<script type="text/javascript">
 	    /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -346,10 +349,10 @@
 	        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 	    }());
 	    </script>
-		<script src="../../assets/js/jquery.fitvids.js?v=9c12f830db"></script>
-		<script src="../../assets/js/bootstrap.min.js?v=9c12f830db"></script>
-		<script src="../../assets/js/jflickrfeed.min.js?v=9c12f830db"></script>
-		<script src="../../assets/js/highlight.pack.js?v=9c12f830db"></script>
-		<script src="../../assets/js/main.js?v=9c12f830db"></script>
+		<script src="../../assets/js/jquery.fitvids.js?v=43bc360793"></script>
+		<script src="../../assets/js/bootstrap.min.js?v=43bc360793"></script>
+		<script src="../../assets/js/jflickrfeed.min.js?v=43bc360793"></script>
+		<script src="../../assets/js/highlight.pack.js?v=43bc360793"></script>
+		<script src="../../assets/js/main.js?v=43bc360793"></script>
 		<!-- Add your analytic code below --></body>
 	
