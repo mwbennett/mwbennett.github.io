@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Things I&#x27;ve Built or Contributed To</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="assets/js/prism.js?v=c5acaa7fd4" ></script>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=c5acaa7fd4" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=c5acaa7fd4" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=c5acaa7fd4" />
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css?v=c5acaa7fd4" />
+
+    <link rel="canonical" href="http://mwbennett.github.io/portfolio/" />
+    
+    <meta property="og:site_name" content="Mark Bennett" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Things I&#x27;ve Built or Contributed To" />
+    <meta property="og:description" content="..." />
+    <meta property="og:url" content="http://mwbennett.github.io/portfolio/" />
+    <meta property="article:published_time" content="2015-06-16T00:55:17.548Z" />
+    <meta property="article:modified_time" content="2015-06-17T22:11:49.761Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Things I&#x27;ve Built or Contributed To" />
+    <meta name="twitter:description" content="..." />
+    <meta name="twitter:url" content="http://mwbennett.github.io/portfolio/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Mark Bennett",
+    "author": {
+        "@type": "Person",
+        "name": "Mark Bennett",
+        "image": "//www.gravatar.com/avatar/11e20d82548612772ef7b34d0b0a4251?d=404&s=250",
+        "url": "http://mwbennett.github.io/author/mark",
+        "sameAs": ""
+    },
+    "headline": "Things I&#x27;ve Built or Contributed To",
+    "url": "http://mwbennett.github.io/portfolio/",
+    "datePublished": "2015-06-16T00:55:17.548Z",
+    "dateModified": "2015-06-17T22:11:49.761Z",
+    "description": "..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5" />
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="rss/index.html" />
+</head>
+<body class="post-template page-template page page-portfolio page-template-portfolio">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+        <div class="header-content">
+          <header>
+            <h1><a href="http://mwbennett.github.io">Mark<br>Bennett</a></h1>
+            <div class="social-links-wrapper">
+              <ul class="social-links">
+                <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+                <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+      
+            <ul class="menu-items">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about">About</a></li>
+              <li><a href="portfolio">Portfolio</a></li>
+              <li><a href="contact">Contact</a></li>
+            </ul>
+      
+          </header>
+        </div>
+      </section>
+      
+<main class="content">
+  <article class="post page">
+
+      <div class="portfolio-wrapper page-wrapper">
+        <h2 class="title">Things I&#x27;ve Built or Contributed To</h2>
+        <p class="portfolio-content"></p>
+
+        <div class="app-container">
+          <h3 class="app-title"><a href="http://codergirl.io">Coder Girl</a></h3>
+          <div class="col-lg-6 col-md-10 col-xs-10 thumb">
+            <a class="thumbnail" href="http://codergirl.io"><img class="img-responive" src="assets/images/codergirl2.png?v=c5acaa7fd4"></img></a>
+          </div>
+          <div class="col-lg-6 col-md-10 col-xs-10">
+            <p class="app-description">An online educational platform to teach girls to code. Girls learn programming fundamentals through challenges of increasing difficulty. As they progress through challenges, girls are awarded points, and top scorers are featured on an application-wide leaderboard. To create a fun and social experience, the leaderboard shows off girls' Instagram feeds. As they code, girls can turn to each other for support and joint problem solving through a live chatroom.</p>
+            <p class="app-stack">Built with Node.js, Express, Socket.io, PostgreSQL, React, Flux, Instagram API, Jasmine, and Gulp.</p>
+          </div>
+        </div>
+
+        <div class="app-container">
+          <h3 class="app-title"><a href="http://diffpitch.herokuapp.com">DiffPitch</a></h3>
+          <div class="col-lg-6 col-md-10 col-xs-10 thumb">
+            <a class="thumbnail" href="http://diffpitch.herokuapp.com"><img class="img-responive" src="assets/images/diffPitch.png?v=c5acaa7fd4"></img></a>
+          </div>
+          <div class="col-lg-6 col-md-10 col-xs-10">
+            <p class="app-description">A single-page application for music interval recognition and training. DiffPitch helps users improve their ability to quickly and accurately recognize intervals by identifying notes that are played aloud and rendered on a music staff.</p>
+            <p class="app-stack">Built with JavaScript, jQuery, Node.js, Express, Teoria.js, Bootstrap, and Timbre.js.</p>
+          </div>
+        </div>
+
+        <div class="app-container">
+          <h3 class="app-title"><a href="https://github.com/Triumphant-Mailbox/courageous-trapeze">antiSocialite</a></h3>
+          <div class="col-lg-6 col-md-10 col-xs-10 thumb">
+            <a class="thumbnail" href="https://github.com/Triumphant-Mailbox/courageous-trapeze"><img class="img-responive" src="assets/images/antiSocialite.png?v=c5acaa7fd4"></img></a>
+          </div>
+          <div class="col-lg-6 col-md-10 col-xs-10">
+            <p class="app-description">antiSocialite is an integrated web and mobile application that targets anyone who is too busy or forgetful to send out personal communications to their friends and family. Users are able to schedule texts in advance to be sent at a later time.</p>
+            <p class="app-stack">Built with AngularJS, MongoDB, Node.js, Express, Ionic, and Grunt.</p>
+          </div>
+        </div>  
+
+        <div class="app-container">
+          <h3 class="app-title"><a href="https://github.com/Triumphant-Mailbox/triumphant-mailbox">Pickup!</a></h3>
+          <div class="col-lg-6 col-md-10 col-xs-10 thumb">
+            <a class="thumbnail" href="https://github.com/Triumphant-Mailbox/triumphant-mailbox"><img class="img-responive" src="assets/images/pickup.png?v=c5acaa7fd4"></img></a>
+          </div>
+          <div class="col-lg-6 col-md-10 col-xs-10">
+            <p class="app-description">Pickup! offers a better way to find and organize pickup basketball games at public courts. The application integrates the Google Places API with a dynamic front-end UI that allows users to find where and when they can get in a pickup game nearby.</p>
+            <p class="app-stack">Built with AngularJS, Node.js, Express, MySQL, and Gulp.</p>
+          </div>
+        </div>
+
+      </div>
+
+  </article>  
+</main>
+    </div>
+  </section>
+
+  <script src="public/jquery.js?v=c5acaa7fd4"></script>
+</body>

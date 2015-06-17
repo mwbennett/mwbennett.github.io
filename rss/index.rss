@@ -1,8 +1,6 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Mark Bennett</title><description>Software developer, music lover, and 2015 Venture for America Fellow. </description><link>http://mwbennett.github.io/</link><generator>Ghost 0.5</generator><lastBuildDate>Tue, 02 Jun 2015 19:57:37 GMT</lastBuildDate><atom:link href="http://mwbennett.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Growing Pains Part I: Acclimating to Scopes and Hoisting</title><description>&lt;p&gt;&lt;em&gt;W2D4&lt;/em&gt;&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Mark Bennett</title><description>Software developer, music lover, and 2015 Venture for America Fellow. </description><link>http://mwbennett.github.io/</link><generator>Ghost 0.5</generator><lastBuildDate>Wed, 17 Jun 2015 23:45:46 GMT</lastBuildDate><atom:link href="http://mwbennett.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>JavaScript Scopes and Variable Hoisting</title><description>&lt;p&gt;Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints. So what are they? &lt;/p&gt;
 
-&lt;p&gt;This week, I'm blogging about a few of the coding-related growing pains I've noticed in the early stages at Hack Reactor. These are relatively simple concepts that I understand in theory, but which continually trip me up and cost me time as I work through sprints. First up, JavaScript scopes and hoisting. &lt;/p&gt;
-
-&lt;h4 id="scopes"&gt;Scopes&lt;/h4&gt;
+&lt;h3 id="scopes"&gt;Scopes&lt;/h3&gt;
 
 &lt;p&gt;Variable scopes are portions of a program where the binding between a variable and a value is valid. Put another way, scopes determine which variables you have access to at any particular point in your code. In JavaScript, functions (and only functions) each create their own variable scope. &lt;/p&gt;
 
@@ -24,7 +22,7 @@
 
 &lt;p&gt;When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  &lt;/p&gt;
 
-&lt;h4 id="hoisting"&gt;Hoisting&lt;/h4&gt;
+&lt;h3 id="hoisting"&gt;Hoisting&lt;/h3&gt;
 
 &lt;p&gt;Hoisting is pretty simple: at run time, all function and variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that within each scope, all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  &lt;/p&gt;
 
@@ -59,7 +57,7 @@ petName = function(){
 
 &lt;p&gt;And herein lies the problem. Rather than retaining the value assigned to &lt;code&gt;name&lt;/code&gt; in the outer scope until it gets reassigned, variable hoisting moves the declaration for &lt;code&gt;name&lt;/code&gt; to the top of the internal &lt;code&gt;lastName&lt;/code&gt; scope. So when &lt;code&gt;sentence&lt;/code&gt; is assigned, &lt;code&gt;name&lt;/code&gt; has been declared in the internal scope, but not yet assigned. End result: as written, &lt;code&gt;lastName&lt;/code&gt; will return "undefined is my name."  &lt;/p&gt;
 
-&lt;h4 id="avoidingsnags"&gt;Avoiding snags&lt;/h4&gt;
+&lt;h3 id="avoidingsnags"&gt;Avoiding snags&lt;/h3&gt;
 
 &lt;p&gt;A couple ways I've learned to avoid making silly mistakes involving scopes and hoisting:&lt;/p&gt;
 
@@ -68,9 +66,7 @@ petName = function(){
 &lt;li&gt;&lt;strong&gt;Include all function dependencies as inputs.&lt;/strong&gt; When I write functions that rely on variables that are declared in outer scopes, it quickly becomes challenging to keep track of where variables are originating. Instead, I include those variables as function inputs.  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  &lt;/p&gt;</description><link>http://mwbennett.github.io/2015/03/31/javascript-scopes/</link><guid isPermaLink="false">a84f8d57-d809-460a-9ae7-ffaefd525b47</guid><category>Hack Reactor</category><category>JavaScript</category><dc:creator>Mark Bennett</dc:creator><pubDate>Wed, 01 Apr 2015 01:28:34 GMT</pubDate></item><item><title>Blogging at Hack Reactor</title><description>&lt;p&gt;&lt;em&gt;HR W1D4&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I've officially arrived in the trenches at &lt;a href="http://www.hackreactor.com/"&gt;Hack Reactor&lt;/a&gt;! My first few days here have been a complete blur, in the best possible way. Despite my having impossibly high expectations coming into the program, thus far Hack Reactor has completely lived up to the hype. &lt;/p&gt;
+&lt;p&gt;Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  &lt;/p&gt;</description><link>http://mwbennett.github.io/2015/03/31/javascript-scopes/</link><guid isPermaLink="false">a84f8d57-d809-460a-9ae7-ffaefd525b47</guid><category>Hack Reactor</category><category>JavaScript</category><dc:creator>Mark Bennett</dc:creator><pubDate>Wed, 01 Apr 2015 01:28:34 GMT</pubDate></item><item><title>Blogging at Hack Reactor</title><description>&lt;p&gt;I've officially arrived in the trenches at &lt;a href="http://www.hackreactor.com/"&gt;Hack Reactor&lt;/a&gt;! My first few days here have been a complete blur, in the best possible way. Despite my having impossibly high expectations coming into the program, thus far Hack Reactor has completely lived up to the hype. &lt;/p&gt;
 
 &lt;p&gt;Hack Reactor strongly encourages students to maintain a blog during their time here, a suggestion that I have decided to follow despite my mild hatred for writing. Ultimately, I expect the value of blogging will outweigh the &lt;em&gt;certain&lt;/em&gt; discomfort I will experience by publicly publishing written words on a regular basis. (If you're struggling to understand why this is such a big deal, it may be helpful to know that I typed, deleted, and retyped various versions of this sentence six times before ultimately moving on. TL;DR: writing is hard.)&lt;/p&gt;
 
