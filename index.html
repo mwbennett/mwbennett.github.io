@@ -1,0 +1,354 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mark Bennett</title>
+  <meta name="description" content="Software developer, music lover, and 2015 Venture for America Fellow.">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="assets/js/prism.js?v=15c93b4e81"></script>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=15c93b4e81">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=15c93b4e81">
+
+    <link rel="canonical" href="http://mwbennett.github.io/">
+    
+    <meta property="og:site_name" content="Mark Bennett">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mark Bennett">
+    <meta property="og:description" content="Software developer, music lover, and 2015 Venture for America Fellow.">
+    <meta property="og:url" content="http://mwbennett.github.io/">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mark Bennett">
+    <meta name="twitter:description" content="Software developer, music lover, and 2015 Venture for America Fellow.">
+    <meta name="twitter:url" content="http://mwbennett.github.io/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "Mark Bennett",
+    "url": "http://mwbennett.github.io/",
+    "description": "Software developer, music lover, and 2015 Venture for America Fellow."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="http://mwbennett.github.io/rss/">
+</head>
+<body class="home-template">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+  <div class="header-content">
+    <header>
+      <h1><a href="index.html">Mark<br>Bennett</a></h1>
+
+      <div class="social-links-wrapper">
+        <ul class="social-links">
+          <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+          <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+          <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+
+      <ul class="menu-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+
+    </header>
+  </div>
+</section>
+      
+<!-- start main post area -->
+<div class="main-content">
+  
+<article class="post tag-git tag-workflow">
+  <header class="post-header">
+    <h2 class="post-title"><a href="2015/06/27/git-workflow-for-clean-collaboration/">Git Workflow for Clean Collaboration</a></h2>
+  </header>
+  <section class="post-date-section">
+    <time class="post-date" datetime="2015-06-27">June 27, 2015</time>
+  </section>
+  <section class="post-content">
+    <p></p><p>You and your team are about to start a new project. How will you manage your individual contributions without muddying up your master repo? </p>
+
+<p>Implementing a solid git workflow can require a bit of time early on in a project, but in the long run it pays off in spades. Below is a rebase-based workflow that keeps group repos clean and easy to manage.</p>
+
+<h4 id="gettingorganized">Getting organized</h4>
+
+<p>1 - Create a master repo on the organization profile that would live at <a href="http://github.com/org-name/project-name">http://github.com/org-name/project-name</a>. This will be the upstream repo for all the team members. </p>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-45-40-PM.png" alt=""></p>
+
+<p>2 - Each member of your team should fork the repo on GitHub to his or her personal profile, clone his/her fork to a local computer, set the upstream remote to the team's repo, and checkout a new feature branch.</p>
+
+<pre><code class="language-bash"> $ git clone https://github.com/&lt;your-username&gt;/&lt;project-name&gt;.git
+ $ git remote add upstream https://github.com/&lt;org-name&gt;/&lt;project-name&gt;.git
+ $ git checkout -b &lt;new-branch-name&gt;
+</code></pre>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-08-07-PM.png" alt=""></p>
+
+<h4 id="rebasing101">Rebasing 101</h4>
+
+<p>At this point, we're ready to begin the main workflow cycle that will repeat for every feature that is contributed to the project. Let's dive in. </p>
+
+<p>3 - Work on the feature branch until you are finished with the feature and ready to add it to the upstream repo. Let's also assume that while you were working, someone else added another new feature to the team's repo.</p>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-17-42-PM.png" alt=""></p>
+
+<p>4 - Since your local version is now out of date compared to the upstream, how can your feature be added to the team's repo without causing conflicts? Here's where rebasing comes in.  </p>
+
+<pre><code class="language-bash">$ git pull --rebase upstream master
+</code></pre>
+
+<p>Rebasing involves a few steps. Let's walk through what happens:</p>
+
+<ul>
+<li>First, the local changes are temporarily rolled back so that the codebase mirrors how it appeared before you started working on the feature.  </li>
+</ul>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-21-12-PM.png" alt=""></p>
+
+<ul>
+<li>Next, the latest version of the upstream repo is pulled down to your local branch. </li>
+</ul>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-24-05-PM.png" alt=""></p>
+
+<ul>
+<li>Git will then try to add the changes from your new feature to the existing code, but will highlight places where there are conflicts. </li>
+</ul>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-25-43-PM.png" alt=""></p>
+
+<ul>
+<li>In the command line, git will tell you which files contain conflicts. You will want to edit these files the same way you address merge conflicts. </li>
+</ul>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-26-24-PM.png" alt=""></p>
+
+<ul>
+<li>Once you've edited the code to address the conflicts, save the files, add them, and then continue with the rebase. </li>
+</ul>
+
+<pre><code class="language-bash">$ git add .
+$ git rebase --continue
+</code></pre>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-33-59-PM.png" alt=""></p>
+
+<p>If more conflicts arise, repeat the last two bullets until the rebase ends. </p>
+
+<h4 id="addingtoupstream">Adding to upstream</h4>
+
+<ul>
+<li><p>Once the rebase ends, the local branch will contain both the upstream feature and the feature you developed locally. Now, to add your feature to the upstream repo, first push your local branch up to origin - <code>$ git push origin &lt;feature-branch-name&gt;</code> 
+<img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-35-46-PM.png" alt=""></p></li>
+<li><p>Submit a pull request to your team's master repo. Once approved, your code will be added to the upstream. 
+<img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-36-53-PM.png" alt=""></p></li>
+<li><p>Finally, checkout to your local master branch and pull down the updated upstream.</p></li>
+</ul>
+
+<pre><code class="language-bash">$ git checkout master
+$ git pull upstream master
+</code></pre>
+
+<p><img src="content/images/2015/06/Screen-Shot-2015-06-27-at-4-41-20-PM.png" alt=""></p>
+
+<p>And that's it! Now you're ready to create another feature branch and start the process again. </p>
+  </section>
+  <footer class="post-tags">
+    Tags: <a href="tag/git/">git</a>, <a href="tag/workflow/">workflow</a>
+  </footer>
+</article>
+<article class="post tag-javascript">
+  <header class="post-header">
+    <h2 class="post-title"><a href="2015/06/27/whats-the-difference-understanding-local-storage-session-storage-and-cookies/">What's the Difference? Understanding Local Storage, Session Storage, and Cookies</a></h2>
+  </header>
+  <section class="post-date-section">
+    <time class="post-date" datetime="2015-06-27">June 27, 2015</time>
+  </section>
+  <section class="post-content">
+    <p></p><p>Let's talk about local storage, session storage, and cookies. These are all storage solutions held on the browser often used in client-side authentication methods. Learning the differences between these can help us better understand how sites always remember who we are when we leave and then return, and how the location of client-side data (especially authentication data) impacts user experience. </p>
+
+<h5 id="localandsessionstoragemostlythesameonekeydifference">Local and session storage: mostly the same, one key difference</h5>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Local storage</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">session storage</a> are both relatively new APIs that allow access to a local storage object on the browser. The scope for accessing data in both local and session storage is specifc to the <strong>origin</strong>, which refers to the unique combination of protocol, hostname, and port number. This means the data held in local storage is available on pages that were loaded from the same origin that stored the data previously. This same-origin policy protects against cross-site scripting (XSS) and other security risks. </p>
+
+<p>The main difference between local and session storage is the <strong>persistence</strong> of the stored data. Data in local storage persists after a browser tab is closed, whereas data held in session storage is limited to the lifetime of a given browser tab. Data stored in either local or session storage will persist after page reloads. </p>
+
+<h5 id="cookiesoldhabitsdiehard">Cookies: old habits die hard</h5>
+
+<p>Unlike local and session storage, cookies travel between the browser and the server in the headers of every HTTP request. Cookies have been used to help a website keep track of stateful information, recent browsing activity, or authentication data. Unlike local and session storage, which can store multiple primitive data types, cookies can only store strings, meaning the data must be parsed on each request as well. </p>
+
+<p>These days, some believe using cookies as a client-side storage mechanism is an artifact created by limitations that no longer exist (see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</a>). Sending any data back and forth from the server introduces additional performance burden, and now that there are alternative storage options (see above!!), cookies could be relegated to a secondary storage method.  </p>
+
+<h4 id="theresmore">There's more</h4>
+
+<p>Much more could be said about the distinctions here (cookies are limited to 4KB in size, whereas local and session storage can manage 5MB or more, depending on the browser, e.g.), but the main takeaway is that these three storage options have different merits and drawbacks to be considered when choosing one over the other.</p>
+  </section>
+  <footer class="post-tags">
+    Tags: <a href="tag/javascript/">JavaScript</a>
+  </footer>
+</article>
+<article class="post tag-hack-reactor tag-javascript">
+  <header class="post-header">
+    <h2 class="post-title"><a href="2015/03/31/javascript-scopes/">JavaScript Scopes and Variable Hoisting</a></h2>
+  </header>
+  <section class="post-date-section">
+    <time class="post-date" datetime="2015-03-31">March 31, 2015</time>
+  </section>
+  <section class="post-content">
+    <p></p><p>Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints. So what are they? </p>
+
+<h3 id="scopes">Scopes</h3>
+
+<p>Variable scopes are portions of a program where the binding between a variable and a value is valid. Put another way, scopes determine which variables you have access to at any particular point in your code. In JavaScript, functions (and only functions) each create their own variable scope. </p>
+
+<pre><code class="language-javascript">var outerScope = function(){          // creates a new scope  
+  var outer = 1;
+  // code here can access 'outer'
+  var innerScope = function(){        // creates another new scope 
+    var inner = 2;
+    if (inner){                       // does NOT create a new scope 
+      var greeting = "hello";
+    }
+    // code here can access 'outer', 'inner', and 'greeting'
+    console.log(greeting);            // logs "hello" 
+  };
+  // code here CANNOT access 'inner' or 'greeting'
+};
+// code here CANNOT access 'outer', 'inner', or 'greeting'
+</code></pre>
+
+<p>When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  </p>
+
+<h3 id="hoisting">Hoisting</h3>
+
+<p>Hoisting is pretty simple: at run time, all function and variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that within each scope, all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  </p>
+
+<pre><code class="language-javascript">var petName = function(){  
+  var name = "Bessie";
+  var lastName = function(){
+    var sentence = name + " is my name."
+    var name = "Paul";
+    return sentence;
+  };
+  return lastName();
+};
+</code></pre>
+
+<p>It's not unreasonable to expect that <code>petName</code> would return "Bessie is my name." But it doesn't. To see why, let's check out how the code looks to the interpreter after variable hoisting occurs:  </p>
+
+<pre><code class="language-javascript">var petName;                  // petName declaration is hoisted  
+petName = function(){  
+  var name;                   // name declaration is hoisted 
+  var lastName;               // lastName declaration is hoisted  
+  name = "Bessie";           
+  lastName = function(){     
+    var sentence;             // sentence declaration is hoisted 
+    var name;                 // name declaration is hoisted 
+    sentence = name + " is my name.";  
+    name = "Paul";            
+    return sentence; 
+  };
+  return lastName();
+};
+</code></pre>
+
+<p>And herein lies the problem. Rather than retaining the value assigned to <code>name</code> in the outer scope until it gets reassigned, variable hoisting moves the declaration for <code>name</code> to the top of the internal <code>lastName</code> scope. So when <code>sentence</code> is assigned, <code>name</code> has been declared in the internal scope, but not yet assigned. End result: as written, <code>lastName</code> will return "undefined is my name."  </p>
+
+<h3 id="avoidingsnags">Avoiding snags</h3>
+
+<p>A couple ways I've learned to avoid making silly mistakes involving scopes and hoisting:</p>
+
+<ul>
+<li><strong>Declare variables at the top of their respective scopes.</strong> Basically, I do the variable hoisting myself. This is ugly, and probably not recommended, but it's an easy way to see the code the way the interpreter will read it. </li>
+<li><strong>Include all function dependencies as inputs.</strong> When I write functions that rely on variables that are declared in outer scopes, it quickly becomes challenging to keep track of where variables are originating. Instead, I include those variables as function inputs.  </li>
+</ul>
+
+<p>Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  </p>
+  </section>
+  <footer class="post-tags">
+    Tags: <a href="tag/hack-reactor/">Hack Reactor</a>, <a href="tag/javascript/">JavaScript</a>
+  </footer>
+</article>
+<article class="post tag-hack-reactor tag-blogging">
+  <header class="post-header">
+    <h2 class="post-title"><a href="2015/03/27/blogging-at-hack-reactor/">Blogging at Hack Reactor</a></h2>
+  </header>
+  <section class="post-date-section">
+    <time class="post-date" datetime="2015-03-27">March 27, 2015</time>
+  </section>
+  <section class="post-content">
+    <p></p><p>I've officially arrived in the trenches at <a href="http://www.hackreactor.com">Hack Reactor</a>! My first few days here have been a complete blur, in the best possible way. Despite my having impossibly high expectations coming into the program, thus far Hack Reactor has completely lived up to the hype. </p>
+
+<p>Hack Reactor strongly encourages students to maintain a blog during their time here, a suggestion that I have decided to follow despite my mild hatred for writing. Ultimately, I expect the value of blogging will outweigh the <em>certain</em> discomfort I will experience by publicly publishing written words on a regular basis. (If you're struggling to understand why this is such a big deal, it may be helpful to know that I typed, deleted, and retyped various versions of this sentence six times before ultimately moving on. TL;DR: writing is hard.)</p>
+
+<h3 id="whyblog">Why blog?</h3>
+
+<p>I know a few people who really love the saying "writing is thinking." As I already mentioned, I'm not wild about writing, and I'd hate to think that necessarily indicates an aversion to thinking too. So I'm inclined to believe that  we <em>are</em> able to think without writing, whereas it's nearly impossible to write clearly without thinking. </p>
+
+<p>With that in mind, my reasoning for blogging is pretty simple - I see it as a way to force myself to engage with my own thoughts and understanding. Should they ever get read by others, I expect these entries will also help correct misunderstandings.</p>
+
+<h3 id="posttopics">Post topics</h3>
+
+<p>Who knows what I'll actually end up writing about, but here are some angles through which I expect to approach posts over the next 13 weeks: </p>
+
+<ul>
+<li><strong>Confirm understanding of technical concepts.</strong> I'll attempt to share interesting details or intricacies of a particular language or framework as I learn them. I doubt the content of these particular posts will be highly novel, but maybe that's the <a href="https://medium.com/@aliciatweet/overcoming-impostor-syndrome-bdae04e46ec5">impostor syndrome</a> talking. </li>
+<li><strong>Convey my Hack Reactor experience.</strong> At this point, there are <a href="http://kevinhamiltonsmith.com/hack-reactor-student-blogs/">tons of blogs</a> that document the experiences of Hack Reactor students (and <a href="http://blog.thejsj.com/">many</a>, <a href="http://www.austentalbot.com/">many</a>, <a href="http://tylermcginnis.com/category/hack-reactor/">many</a> more since that post was published). I skimmed over more than a few of these before applying to the program, and the quality of the blogs was one of the many indications that Hack Reactor was the real deal. I feel it's only fair that I attempt to follow in the footsteps of providing useful insights for future Hack Reactor applicants and students. </li>
+<li><strong>Share resources and solutions for potentially unique problems.</strong> It's likely that ~95% of my time over the next 13 weeks will be spent trying to solve broken code. I expect that on occasion, my code might be broken in a somewhat interesting way. When this happens, I figure it's a good excuse for a post—both to share a solution to a problem others might experience, and to ensure I fully understand the solution that I've implemented (back to the old "writing is thinking" argument). </li>
+<li><strong>Articulate non-technical growth.</strong> Hack Reactor will help me become an exponentially better software engineer than I am now. It will also, I hope, help me grow in ways that aren't explicitly related to my technical abilities. I hope to occasionally reflect on that development as well. </li>
+</ul>
+
+<h3 id="bloggingscheduleandconventions">Blogging schedule and conventions</h3>
+
+<p>(Before I go on, please know that I firmly believe nobody else in the world cares about my blogging schedule. That said, making a written commitment to post consistently will help create the illusion of external expectations, which might be enough to trick me into sticking with it.)</p>
+
+<p>My initial goal is to blog three times per week. Each week, I'll aim to cover one technical topic, one topic that relates to Hack Reactor (directly or indirectly), and one wild card topic. (Yes, these categories aren't at all mutually exclusive...I'm setting expectations without actually committing to anything!) </p>
+
+<p>Throughout my time at Hack Reactor, I'll be prefixing all my posts with "HR W#D#" to indicate how far into the program I am when writing. Today, for example, is Hack Reactor week 1, day 4—or HR W1D4—as seen at the top of this post. For reference, the course runs six days a week, for thirteen weeks.</p>
+
+<p>I'll close with my first endorsement of an awesome tool. All my posts will include a comments section thanks to <a href="https://disqus.com/">Disqus</a>. Should anyone happen to stumble across a post, please feel free to comment. You can do so without an account, but you should probably just sign up. <a href="https://help.disqus.com/customer/portal/articles/1109643-new-profiles-f-a-q-">Disqus profiles</a> are pretty great. </p>
+  </section>
+  <footer class="post-tags">
+    Tags: <a href="tag/hack-reactor/">Hack Reactor</a>, <a href="tag/blogging/">Blogging</a>
+  </footer>
+</article>
+<article class="post tag-personal">
+  <header class="post-header">
+    <h2 class="post-title"><a href="2015/01/27/hello-world/">Welcome</a></h2>
+  </header>
+  <section class="post-date-section">
+    <time class="post-date" datetime="2015-01-27">January 27, 2015</time>
+  </section>
+  <section class="post-content">
+    <p></p><p>My name is Mark Bennett, and I am an aspiring software developer and entrepreneur. I'm preparing to begin a new adventure in two parts: in two months I start at <a href="http://www.hackreactor.com">Hack Reactor</a>, a three month intensive program to become a more capable coder and developer; immediately afterward, I will be joining <a href="http://www.ventureforamerica.com">Venture for America</a> as a 2015 Fellow. I'm supremely exciting for what's to come. </p>
+
+<p>I hope to use this blog as a way to track my progress and share some of the things I learn and think about along the way. It will also provide a great excuse to more routinely focus on being thoughtful and introspective. With any luck, perhaps these posts <em>might</em> at some point become of mild interest to people other than myself... but for now, I won't hold my breath. </p>
+  </section>
+  <footer class="post-tags">
+    Tags: <a href="tag/personal/">Personal</a>
+  </footer>
+</article>
+
+<nav class="pagination" role="navigation">
+    <span class="page-number">Page 1 of 1</span>
+</nav>
+</div>
+
+    </div>
+  </section>
+
+  <script src="public/jquery.js?v=15c93b4e81"></script>
+</body>

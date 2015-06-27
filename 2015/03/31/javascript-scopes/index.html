@@ -1,0 +1,197 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JavaScript Scopes and Variable Hoisting</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="../../../../assets/js/prism.js?v=15c93b4e81"></script>
+  <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=15c93b4e81">
+  <link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/styles.css?v=15c93b4e81">
+
+    <link rel="canonical" href="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
+    
+    <meta property="og:site_name" content="Mark Bennett">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript Scopes and Variable Hoisting">
+    <meta property="og:description" content="Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints....">
+    <meta property="og:url" content="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
+    <meta property="article:published_time" content="2015-04-01T01:28:34.177Z">
+    <meta property="article:modified_time" content="2015-06-17T22:08:50.682Z">
+    <meta property="article:tag" content="Hack Reactor">
+    <meta property="article:tag" content="JavaScript">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript Scopes and Variable Hoisting">
+    <meta name="twitter:description" content="Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints....">
+    <meta name="twitter:url" content="http://mwbennett.github.io/2015/03/31/javascript-scopes/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Mark Bennett",
+    "author": {
+        "@type": "Person",
+        "name": "Mark Bennett",
+        "image": "//www.gravatar.com/avatar/11e20d82548612772ef7b34d0b0a4251?d=404&s=250",
+        "url": "http://mwbennett.github.io/author/mark",
+        "sameAs": null,
+        "description": "Software developer with a focus on full-stack JavaScript. 2015 Venture for America Fellow. Hack Reactor student. Wesleyan grad. Oakland native. Lover of music, basketball, and the outdoors."
+    },
+    "headline": "JavaScript Scopes and Variable Hoisting",
+    "url": "http://mwbennett.github.io/2015/03/31/javascript-scopes/",
+    "datePublished": "2015-04-01T01:28:34.177Z",
+    "dateModified": "2015-06-17T22:08:50.682Z",
+    "keywords": "Hack Reactor, JavaScript",
+    "description": "Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints...."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="http://mwbennett.github.io/rss/">
+</head>
+<body class="post-template tag-hack-reactor tag-javascript">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+  <div class="header-content">
+    <header>
+      <h1><a href="../../../../">Mark<br>Bennett</a></h1>
+
+      <div class="social-links-wrapper">
+        <ul class="social-links">
+          <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+          <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+          <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+
+      <ul class="menu-items">
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../portfolio">Portfolio</a></li>
+        <li><a href="../../../../contact">Contact</a></li>
+      </ul>
+
+    </header>
+  </div>
+</section>
+      <div class="post-container">
+  <!-- start main post area -->
+  <div class="post-content">
+    <main class="content" role="main">
+      <article class="post tag-hack-reactor tag-javascript">
+        <header class="post-header">
+          <h2 class="post-title">JavaScript Scopes and Variable Hoisting</h2>
+          <section class="post-meta">
+              <time class="post-date" datetime="2015-03-31">March 31, 2015</time>
+          </section>
+        </header>
+
+        <section class="post-content">
+          <p>Scopes and hoisting were two concepts I struggled with when I first began learning JavaScript. These are relatively simple concepts in retrospect, but I found they would continually trip me up and cost me time as I worked through sprints. So what are they? </p>
+
+<h3 id="scopes">Scopes</h3>
+
+<p>Variable scopes are portions of a program where the binding between a variable and a value is valid. Put another way, scopes determine which variables you have access to at any particular point in your code. In JavaScript, functions (and only functions) each create their own variable scope. </p>
+
+<pre><code class="language-javascript">var outerScope = function(){          // creates a new scope  
+  var outer = 1;
+  // code here can access 'outer'
+  var innerScope = function(){        // creates another new scope 
+    var inner = 2;
+    if (inner){                       // does NOT create a new scope 
+      var greeting = "hello";
+    }
+    // code here can access 'outer', 'inner', and 'greeting'
+    console.log(greeting);            // logs "hello" 
+  };
+  // code here CANNOT access 'inner' or 'greeting'
+};
+// code here CANNOT access 'outer', 'inner', or 'greeting'
+</code></pre>
+
+<p>When a variable is referenced within a program, JavaScript will first check the current (local) scope for the assignment for that variable. If the variable is not assigned in the local scope, it will check the next containing scope for the variable, and will continue to look in outer scopes until either (a) the variable assignment is found, or (b) the final (global) scope cannot find the variable assignment, in which case the program will throw an error.  </p>
+
+<h3 id="hoisting">Hoisting</h3>
+
+<p>Hoisting is pretty simple: at run time, all function and variable declarations are hoisted to the top of their local scopes. Items are hoisted in the same order that they appear, except that within each scope, all function declarations are hoisted above variable declarations. A simple example will be the best way to demonstrate what this means, so check out the code below.  </p>
+
+<pre><code class="language-javascript">var petName = function(){  
+  var name = "Bessie";
+  var lastName = function(){
+    var sentence = name + " is my name."
+    var name = "Paul";
+    return sentence;
+  };
+  return lastName();
+};
+</code></pre>
+
+<p>It's not unreasonable to expect that <code>petName</code> would return "Bessie is my name." But it doesn't. To see why, let's check out how the code looks to the interpreter after variable hoisting occurs:  </p>
+
+<pre><code class="language-javascript">var petName;                  // petName declaration is hoisted  
+petName = function(){  
+  var name;                   // name declaration is hoisted 
+  var lastName;               // lastName declaration is hoisted  
+  name = "Bessie";           
+  lastName = function(){     
+    var sentence;             // sentence declaration is hoisted 
+    var name;                 // name declaration is hoisted 
+    sentence = name + " is my name.";  
+    name = "Paul";            
+    return sentence; 
+  };
+  return lastName();
+};
+</code></pre>
+
+<p>And herein lies the problem. Rather than retaining the value assigned to <code>name</code> in the outer scope until it gets reassigned, variable hoisting moves the declaration for <code>name</code> to the top of the internal <code>lastName</code> scope. So when <code>sentence</code> is assigned, <code>name</code> has been declared in the internal scope, but not yet assigned. End result: as written, <code>lastName</code> will return "undefined is my name."  </p>
+
+<h3 id="avoidingsnags">Avoiding snags</h3>
+
+<p>A couple ways I've learned to avoid making silly mistakes involving scopes and hoisting:</p>
+
+<ul>
+<li><strong>Declare variables at the top of their respective scopes.</strong> Basically, I do the variable hoisting myself. This is ugly, and probably not recommended, but it's an easy way to see the code the way the interpreter will read it. </li>
+<li><strong>Include all function dependencies as inputs.</strong> When I write functions that rely on variables that are declared in outer scopes, it quickly becomes challenging to keep track of where variables are originating. Instead, I include those variables as function inputs.  </li>
+</ul>
+
+<p>Eventually, I hope to be able to steer clear of issues related to these concepts without much conscious thought. Until then, these two practices have helped me avoid needless debugging.  </p>
+        </section>
+
+        <footer class="post-footer">
+          Tags: <a href="../../../../tag/hack-reactor/">Hack Reactor</a>, <a href="../../../../tag/javascript/">JavaScript</a>
+        </footer>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'markbennett';
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+      </article>
+    </main>
+  </div>
+  <!-- end main post area -->
+</div>
+
+    </div>
+  </section>
+
+  <script src="../../../../public/jquery.js?v=15c93b4e81"></script>
+</body>

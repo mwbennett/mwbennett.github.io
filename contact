@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Get In Touch</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="assets/js/prism.js?v=15c93b4e81" ></script>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=15c93b4e81" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=15c93b4e81" />
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css?v=15c93b4e81" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=15c93b4e81" />
+
+    <link rel="canonical" href="http://mwbennett.github.io/contact/" />
+    <meta name="generator" content="Ghost 0.6" />
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="http://mwbennett.github.io/rss/" />
+</head>
+<body class="post-template page-template page page-contact page-template-contact">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+  <div class="header-content">
+    <header>
+      <h1><a href="index.html">Mark<br>Bennett</a></h1>
+
+      <div class="social-links-wrapper">
+        <ul class="social-links">
+          <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+          <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+          <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+
+      <ul class="menu-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+
+    </header>
+  </div>
+</section>
+      
+<main class="content">
+  <article class="post page">
+
+      <div class="contact-wrapper page-wrapper">
+        <h2 class="title">Get In Touch</h2>
+        <p class="contact-content"></p>
+        <!-- www.123contactform.com script begins here -->
+                
+        <script type="text/javascript">var servicedomain="www.123contactform.com"; var frmRef=''; try { frmRef=window.top.location.href; } catch(err) {}; var cfJsHost = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/includes/easyXDM.min.js' type='text/javascript'%3E%3C/script%3E")); frmRef=encodeURIComponent(frmRef).replace('%26','[%ANDCHAR%]'); document.write(unescape("%3Cscript src='" + cfJsHost + servicedomain + "/jsform-1476008.js?ref="+frmRef+"' type='text/javascript'%3E%3C/script%3E")); </script>
+
+        <!-- www.123contactform.com script ends here -->
+
+
+      </div>
+
+  </article>  
+
+</main>
+
+    </div>
+  </section>
+
+  <script src="public/jquery.js?v=15c93b4e81"></script>
+</body>

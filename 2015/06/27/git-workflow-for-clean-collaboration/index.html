@@ -1,0 +1,215 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Git Workflow for Clean Collaboration</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="../../../../assets/js/prism.js?v=15c93b4e81"></script>
+  <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css?v=15c93b4e81">
+  <link rel="stylesheet" href="../../../../assets/css/font-awesome.min.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=15c93b4e81">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/css/styles.css?v=15c93b4e81">
+
+    <link rel="canonical" href="http://mwbennett.github.io/2015/06/27/git-workflow-for-clean-collaboration/">
+    
+    <meta property="og:site_name" content="Mark Bennett">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Git Workflow for Clean Collaboration">
+    <meta property="og:description" content="You and your team are about to start a new project. How will you manage your individual contributions without muddying up your master repo?  Implementing a solid git workflow can require a bit of time early on in a project,...">
+    <meta property="og:url" content="http://mwbennett.github.io/2015/06/27/git-workflow-for-clean-collaboration/">
+    <meta property="article:published_time" content="2015-06-27T20:59:07.645Z">
+    <meta property="article:modified_time" content="2015-06-27T21:18:47.662Z">
+    <meta property="article:tag" content="git">
+    <meta property="article:tag" content="workflow">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Git Workflow for Clean Collaboration">
+    <meta name="twitter:description" content="You and your team are about to start a new project. How will you manage your individual contributions without muddying up your master repo?  Implementing a solid git workflow can require a bit of time early on in a project,...">
+    <meta name="twitter:url" content="http://mwbennett.github.io/2015/06/27/git-workflow-for-clean-collaboration/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Mark Bennett",
+    "author": {
+        "@type": "Person",
+        "name": "Mark Bennett",
+        "image": "//www.gravatar.com/avatar/11e20d82548612772ef7b34d0b0a4251?d=404&s=250",
+        "url": "http://mwbennett.github.io/author/mark",
+        "sameAs": null,
+        "description": "Software developer with a focus on full-stack JavaScript. 2015 Venture for America Fellow. Hack Reactor student. Wesleyan grad. Oakland native. Lover of music, basketball, and the outdoors."
+    },
+    "headline": "Git Workflow for Clean Collaboration",
+    "url": "http://mwbennett.github.io/2015/06/27/git-workflow-for-clean-collaboration/",
+    "datePublished": "2015-06-27T20:59:07.645Z",
+    "dateModified": "2015-06-27T21:18:47.662Z",
+    "keywords": "git, workflow",
+    "description": "You and your team are about to start a new project. How will you manage your individual contributions without muddying up your master repo?  Implementing a solid git workflow can require a bit of time early on in a project,..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="http://mwbennett.github.io/rss/">
+</head>
+<body class="post-template tag-git tag-workflow">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+  <div class="header-content">
+    <header>
+      <h1><a href="../../../../">Mark<br>Bennett</a></h1>
+
+      <div class="social-links-wrapper">
+        <ul class="social-links">
+          <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+          <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+          <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+
+      <ul class="menu-items">
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../portfolio">Portfolio</a></li>
+        <li><a href="../../../../contact">Contact</a></li>
+      </ul>
+
+    </header>
+  </div>
+</section>
+      <div class="post-container">
+  <!-- start main post area -->
+  <div class="post-content">
+    <main class="content" role="main">
+      <article class="post tag-git tag-workflow">
+        <header class="post-header">
+          <h2 class="post-title">Git Workflow for Clean Collaboration</h2>
+          <section class="post-meta">
+              <time class="post-date" datetime="2015-06-27">June 27, 2015</time>
+          </section>
+        </header>
+
+        <section class="post-content">
+          <p>You and your team are about to start a new project. How will you manage your individual contributions without muddying up your master repo? </p>
+
+<p>Implementing a solid git workflow can require a bit of time early on in a project, but in the long run it pays off in spades. Below is a rebase-based workflow that keeps group repos clean and easy to manage.</p>
+
+<h4 id="gettingorganized">Getting organized</h4>
+
+<p>1 - Create a master repo on the organization profile that would live at <a href="http://github.com/org-name/project-name">http://github.com/org-name/project-name</a>. This will be the upstream repo for all the team members. </p>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-45-40-PM.png" alt=""></p>
+
+<p>2 - Each member of your team should fork the repo on GitHub to his or her personal profile, clone his/her fork to a local computer, set the upstream remote to the team's repo, and checkout a new feature branch.</p>
+
+<pre><code class="language-bash"> $ git clone https://github.com/&lt;your-username&gt;/&lt;project-name&gt;.git
+ $ git remote add upstream https://github.com/&lt;org-name&gt;/&lt;project-name&gt;.git
+ $ git checkout -b &lt;new-branch-name&gt;
+</code></pre>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-08-07-PM.png" alt=""></p>
+
+<h4 id="rebasing101">Rebasing 101</h4>
+
+<p>At this point, we're ready to begin the main workflow cycle that will repeat for every feature that is contributed to the project. Let's dive in. </p>
+
+<p>3 - Work on the feature branch until you are finished with the feature and ready to add it to the upstream repo. Let's also assume that while you were working, someone else added another new feature to the team's repo.</p>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-17-42-PM.png" alt=""></p>
+
+<p>4 - Since your local version is now out of date compared to the upstream, how can your feature be added to the team's repo without causing conflicts? Here's where rebasing comes in.  </p>
+
+<pre><code class="language-bash">$ git pull --rebase upstream master
+</code></pre>
+
+<p>Rebasing involves a few steps. Let's walk through what happens:</p>
+
+<ul>
+<li>First, the local changes are temporarily rolled back so that the codebase mirrors how it appeared before you started working on the feature.  </li>
+</ul>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-21-12-PM.png" alt=""></p>
+
+<ul>
+<li>Next, the latest version of the upstream repo is pulled down to your local branch. </li>
+</ul>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-24-05-PM.png" alt=""></p>
+
+<ul>
+<li>Git will then try to add the changes from your new feature to the existing code, but will highlight places where there are conflicts. </li>
+</ul>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-25-43-PM.png" alt=""></p>
+
+<ul>
+<li>In the command line, git will tell you which files contain conflicts. You will want to edit these files the same way you address merge conflicts. </li>
+</ul>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-26-24-PM.png" alt=""></p>
+
+<ul>
+<li>Once you've edited the code to address the conflicts, save the files, add them, and then continue with the rebase. </li>
+</ul>
+
+<pre><code class="language-bash">$ git add .
+$ git rebase --continue
+</code></pre>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-33-59-PM.png" alt=""></p>
+
+<p>If more conflicts arise, repeat the last two bullets until the rebase ends. </p>
+
+<h4 id="addingtoupstream">Adding to upstream</h4>
+
+<ul>
+<li><p>Once the rebase ends, the local branch will contain both the upstream feature and the feature you developed locally. Now, to add your feature to the upstream repo, first push your local branch up to origin - <code>$ git push origin &lt;feature-branch-name&gt;</code> 
+<img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-35-46-PM.png" alt=""></p></li>
+<li><p>Submit a pull request to your team's master repo. Once approved, your code will be added to the upstream. 
+<img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-36-53-PM.png" alt=""></p></li>
+<li><p>Finally, checkout to your local master branch and pull down the updated upstream.</p></li>
+</ul>
+
+<pre><code class="language-bash">$ git checkout master
+$ git pull upstream master
+</code></pre>
+
+<p><img src="../../../../content/images/2015/06/Screen-Shot-2015-06-27-at-4-41-20-PM.png" alt=""></p>
+
+<p>And that's it! Now you're ready to create another feature branch and start the process again. </p>
+        </section>
+
+        <footer class="post-footer">
+          Tags: <a href="../../../../tag/git/">git</a>, <a href="../../../../tag/workflow/">workflow</a>
+        </footer>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'markbennett';
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+      </article>
+    </main>
+  </div>
+  <!-- end main post area -->
+</div>
+
+    </div>
+  </section>
+
+  <script src="../../../../public/jquery.js?v=15c93b4e81"></script>
+</body>

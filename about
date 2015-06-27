@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>About Me</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <!-- fav icons -->
+  <!-- stylesheets -->
+  <script type="text/javascript" src="assets/js/prism.js?v=15c93b4e81" ></script>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=15c93b4e81" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=15c93b4e81" />
+  <link rel="stylesheet" type="text/css" href="assets/css/prism.css?v=15c93b4e81" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=15c93b4e81" />
+
+    <link rel="canonical" href="http://mwbennett.github.io/about/" />
+    <meta name="generator" content="Ghost 0.6" />
+    <link rel="alternate" type="application/rss+xml" title="Mark Bennett" href="http://mwbennett.github.io/rss/" />
+</head>
+<body class="post-template page-template page page-about page-template-about">
+  <section class="content-wrap">
+    <div class="container">
+      <section>
+  <div class="header-content">
+    <header>
+      <h1><a href="index.html">Mark<br>Bennett</a></h1>
+
+      <div class="social-links-wrapper">
+        <ul class="social-links">
+          <li class="social-link"><a href="https://github.com/mwbennett"><i class="fa fa-github"></i></a></li>
+          <li class="social-link"><a href="https://twitter.com/bennettwmark"><i class="fa fa-twitter"></i></a></li>
+          <li class="social-link"><a href="https://www.linkedin.com/in/bennettwmark"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+
+      <ul class="menu-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+
+    </header>
+  </div>
+</section>
+      
+<main class="content">
+  <article class="post page">
+
+      <div class="about-wrapper page-wrapper">
+        <h2 class="title">About Me</h2>
+        <div class="profile-pic-container">
+          <img class="profile-pic" src="assets/images/profile.jpeg?v=15c93b4e81"></img>
+        </div>
+        <p class="about-content"><p>Build something. Break it. Repeat.  </p>
+
+<p>I'm a full-stack software engineer. My language of choice is JavaScript, but I'll happily wrestle with Python and Ruby. My favorite toys at the moment include Node.js, React, and AngularJS, but I love hacking around with anything new and exciting. Take a spin through my <a href="http://markbennett.io/portfolio">portfolio</a> to check out some of the things I've built. </p>
+
+<p>I currently work for <a href="https://social.pr/">SocialProof</a> in Detroit as a full-stack developer, and am a 2015 <a href="http://ventureforamerica.org/">Venture for America</a> Fellow.  </p>
+
+<p>Other things: Oakland native and <a href="http://www.hackreactor.com/">Hack Reactor</a> alumnus; backpacking enthusiast; basketball nerd; long-time musician and music lover.  </p></p>
+      </div>
+
+  </article>  
+</main>
+
+    </div>
+  </section>
+
+  <script src="public/jquery.js?v=15c93b4e81"></script>
+</body>
