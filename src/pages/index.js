@@ -22,12 +22,12 @@ const SubTitle = styled.h2`
 `;
 
 const LandingPage = (props) => {
-  const data = useStaticQuery(graphql`
+  const { posts, projects } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
+      posts: allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
-        filter: { frontmatter: { type: { in: ["", "post"] } } }
-        limit: 3
+        filter: { frontmatter: { type: { in: ["post", null] } } }
+        limit: 5
       ) {
         edges {
           node {
@@ -42,11 +42,27 @@ const LandingPage = (props) => {
           }
         }
       }
+      projects: allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { type: { eq: "project" } } }
+        limit: 5
+      ) {
+        edges {
+          node {
+            excerpt
+            frontmatter {
+              date(formatString: "DD MMMM, YYYY")
+              title
+              language
+              slug
+            }
+          }
+        }
+      },
     }
   `);
 
-  const posts = data.allMarkdownRemark.edges;
-  const textContent = "I'm a full stack developer, drummer, basketball nerd, Oakland native. This is a place I blog, post lists of things, and have some info about who I am and what I'm interested in.";
+  const textContent = "I'm a full stack developer, drummer, basketball nerd, Oakland native. This is where I.";
   return (
     <Layout location={props.location} noCover>
       <SEO title="Mark Bennett" />
@@ -58,12 +74,12 @@ const LandingPage = (props) => {
 
         <SubTitle>My recent posts</SubTitle>
 
-        <RelatedPosts posts={posts} />
+        <RelatedPosts posts={posts.edges} />
 
         <SubTitle>Some projects I&apos;m working on</SubTitle>
 
         {/* TODO: Add a data type and components for projects... */}
-        <RelatedPosts posts={posts} />
+        <RelatedPosts posts={projects.edges} />
       </Wrapper>
     </Layout>
   );

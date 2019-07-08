@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
     './src/templates/blog-post-share-image.js',
   );
   const PageTemplate = require.resolve('./src/templates/page.js');
+  const ProjectTemplate = require.resolve('./src/templates/project.js');
   const PostsBytagTemplate = require.resolve('./src/templates/tags.js');
   const ListPostsTemplate = require.resolve(
     './src/templates/blog-list-template.js',
@@ -49,9 +50,8 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const markdownFiles = allMarkdown.data.allMarkdownRemark.edges;
-
   const posts = markdownFiles.filter(
-    item => item.node.frontmatter.type === '' || item.node.frontmatter.type === 'post',
+    item => item.node.frontmatter.type === null || item.node.frontmatter.type === '' || item.node.frontmatter.type === 'post',
   );
 
   // generate paginated post list
@@ -120,6 +120,19 @@ exports.createPages = async ({ graphql, actions }) => {
         component: PageTemplate,
         context: {
           slug: page.node.frontmatter.slug,
+        },
+      });
+    });
+
+  // generate projects
+  markdownFiles
+    .filter(item => item.node.frontmatter.type === 'project')
+    .forEach((project) => {
+      createPage({
+        path: project.node.frontmatter.slug,
+        component: ProjectTemplate,
+        context: {
+          slug: project.node.frontmatter.slug,
         },
       });
     });

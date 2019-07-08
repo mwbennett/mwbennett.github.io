@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
-import { colors } from '../tokens'
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { colors } from '../tokens';
 
 const PaginationWrapper = styled.nav`
   display: flex;
@@ -19,7 +19,7 @@ const PaginationWrapper = styled.nav`
     width: 90%;
     padding: 25px 0;
   }
-`
+`;
 
 const PageBtn = styled(Link)`
   border-radius: 3px;
@@ -39,18 +39,18 @@ const PageBtn = styled(Link)`
     margin-top: 10px;
     width: 100%;
   }
-`
+`;
 
 const PreviousBtn = styled(PageBtn)`
   order: 1;
   @media (max-width: 564px) {
     order: 2;
   }
-`
+`;
 
 const NextBtn = styled(PageBtn)`
   order: 3;
-`
+`;
 
 const Spacer = styled.span`
   display: block;
@@ -75,7 +75,7 @@ const Spacer = styled.span`
       order: 3;
     }
   }
-`
+`;
 
 const PageInfo = styled.span`
   order: 2;
@@ -83,33 +83,31 @@ const PageInfo = styled.span`
   @media (max-width: 564px) {
     order: 1;
   }
-`
+`;
 
-class Pagination extends React.Component {
-  render() {
-    const { currentPage, nbPages } = this.props
-    const previousUrl = currentPage === 2 ? '/blog' : `/blog/pages/${currentPage - 1}`
+const Pagination = (props) => {
+  const { currentPage, nbPages } = props;
+  const previousUrl = currentPage === 2 ? '/blog' : `/blog/pages/${currentPage - 1}`;
 
-    return (
-      <PaginationWrapper>
-        {currentPage !== 1 ? (
-          <PreviousBtn to={previousUrl}>‹ Newer posts</PreviousBtn>
-        ) : (
-          <Spacer className="previous" />
-        )}
+  return (
+    <PaginationWrapper>
+      {currentPage !== 1 ? (
+        <PreviousBtn to={previousUrl}>‹ Newer posts</PreviousBtn>
+      ) : (
+        <Spacer className="previous" />
+      )}
 
-        <PageInfo>
-          Page {currentPage} of {nbPages}
-        </PageInfo>
+      <PageInfo>
+        {`Page ${currentPage} of ${nbPages}`}
+      </PageInfo>
 
-        {currentPage < nbPages ? (
-          <NextBtn to={`/blog/pages/${currentPage + 1}`}>Older posts ›</NextBtn>
-        ) : (
-          <Spacer className="next" />
-        )}
-      </PaginationWrapper>
-    )
-  }
-}
+      {currentPage < nbPages ? (
+        <NextBtn to={`/blog/pages/${currentPage + 1}`}>Older posts ›</NextBtn>
+      ) : (
+        <Spacer className="next" />
+      )}
+    </PaginationWrapper>
+  );
+};
 
-export default Pagination
+export default Pagination;

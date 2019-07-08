@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import ContentHeader from './ContentHeader'
-import { colors } from '../tokens'
+import React from 'react';
+import styled from 'styled-components';
+import ContentHeader from './ContentHeader';
+import { colors } from '../tokens';
 
 const ContentBody = styled.div`
   line-height: 1.6;
@@ -93,19 +93,17 @@ const ContentBody = styled.div`
       border-bottom: 2px solid ${colors.white};
     }
   }
-`
+`;
 
-class Content extends React.Component {
-  render() {
-    const { content, date, tags } = this.props
+const Content = (props) => {
+  const { content, date, tags } = props;
 
-    return (
-      <section>
-        {(tags || date) && <ContentHeader date={date} tags={tags} />}
-        <ContentBody dangerouslySetInnerHTML={{ __html: content }} />
-      </section>
-    )
-  }
-}
+  return (
+    <section>
+      {(tags || date) && <ContentHeader date={date} tags={tags} />}
+      <ContentBody dangerouslySetInnerHTML={{ __html: content }} />
+    </section>
+  );
+};
 
-export default Content
+export default Content;

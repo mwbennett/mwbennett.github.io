@@ -50,7 +50,7 @@ const BlogPostTemplate = (props) => {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query ProjectBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       id
       excerpt
