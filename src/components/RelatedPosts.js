@@ -1,7 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { StyledLink } from './Commons';
 import Flag from './Flag/Flag';
 import useSiteMetadata from '../hooks/use-site-config';
+
+const PostPreviewShort = styled.li`
+  margin: 18px 0 6px;
+`;
+
+const PostDate = styled.div`
+ font-size: .875rem;
+ font-style: italic;
+`;
 
 const RelatedPosts = (props) => {
   const { posts } = props;
@@ -10,17 +21,17 @@ const RelatedPosts = (props) => {
   return (
     <ul>
       {posts.map((post) => {
-        const { title } = post.node.frontmatter;
-        const { slug } = post.node.frontmatter;
+        const { title, slug, date } = post.node.frontmatter;
         const language = post.node.frontmatter.language || 'en';
 
         return (
-          <li key={slug}>
+          <PostPreviewShort key={slug}>
+            <PostDate>{date && <time>{date}</time>}</PostDate>
             <StyledLink to={`/${slug}`}>
               {multilangPosts && <Flag language={language} />}
               {title}
             </StyledLink>
-          </li>
+          </PostPreviewShort>
         );
       })}
     </ul>

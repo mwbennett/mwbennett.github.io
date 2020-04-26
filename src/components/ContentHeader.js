@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
-import TagList from './TagList'
-import { colors } from '../tokens'
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import TagList from './TagList';
+import { colors } from '../tokens';
 
 const Header = styled.header`
   margin-bottom: 2rem;
   color: ${colors.textLight};
-`
+`;
 
 class ContentIntro extends React.Component {
   render() {
-    const { date, tags } = this.props
+    const { date, tags } = this.props;
 
     return (
       <Header>
@@ -22,8 +22,8 @@ class ContentIntro extends React.Component {
           </Fragment>
         )}
       </Header>
-    )
+    );
   }
 }
 
-export default ContentIntro
+export default ContentIntro;

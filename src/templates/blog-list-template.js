@@ -1,39 +1,36 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
 
-import Layout from '../components/layout'
-import Wrapper from '../components/Wrapper'
-import Hero from '../components/Hero'
-import PostsList from '../components/PostsList'
-import Pagination from '../components/Pagination'
-import SEO from '../components/SEO'
+import Layout from '../components/layout';
+import Hero from '../components/Hero';
+import PostsList from '../components/PostsList';
+import Pagination from '../components/Pagination';
+import SEO from '../components/SEO';
 
 class BlogList extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
-    const { pageContext } = this.props
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const posts = get(this, 'props.data.allMarkdownRemark.edges');
+    const { pageContext } = this.props;
 
     return (
       <Layout location={this.props.location}>
         <SEO />
         <Hero title={siteTitle} />
 
-        <Wrapper>
-          <PostsList posts={posts} />
-        </Wrapper>
+        <PostsList posts={posts} />
 
         <Pagination
           nbPages={pageContext.nbPages}
           currentPage={pageContext.currentPage}
         />
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogList
+export default BlogList;
 
 export const pageQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
@@ -63,4 +60,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -35,14 +35,9 @@ const BlogPostTemplate = (props) => {
         title={post.frontmatter.title}
       />
 
-      <Wrapper>
-        <Article post={post} />
-      </Wrapper>
+      <Article post={post} />
 
-      <Wrapper>
-        <Disqus slug={post.frontmatter.slug} title={post.frontmatter.title} />
-        <PrevNextPost previous={previous} next={next} />
-      </Wrapper>
+      <PrevNextPost previous={previous} next={next} />
     </Layout>
   );
 };

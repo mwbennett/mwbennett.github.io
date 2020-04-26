@@ -3,9 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Content from '../components/Content';
-import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import Disqus from '../components/Disqus';
 
 const Page = (props) => {
   const page = props.data.markdownRemark;
@@ -19,20 +17,9 @@ const Page = (props) => {
         cover={page.frontmatter.cover && page.frontmatter.cover.publicURL}
       />
 
-      <Wrapper>
-        <article>
-          <Content content={page.html} date={page.frontmatter.date} />
-        </article>
-      </Wrapper>
-
-      {page.frontmatter.disqus && (
-        <Wrapper>
-          <Disqus
-            slug={page.frontmatter.slug}
-            title={page.frontmatter.title}
-          />
-        </Wrapper>
-      )}
+      <article>
+        <Content content={page.html} date={page.frontmatter.date} />
+      </article>
     </Layout>
   );
 };

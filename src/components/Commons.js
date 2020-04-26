@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
-import { Link } from 'gatsby'
-import { colors } from '../tokens'
+import styled, { createGlobalStyle } from 'styled-components';
+
+import { Link } from 'gatsby';
+import { colors } from '../tokens';
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Muli", arial, sans-serif;
   color: ${colors.text};
   background-color: ${colors.background};
 }
@@ -28,21 +28,29 @@ a {
   color: ${colors.primary};
 }
 
+ul {
+  list-style-type: none;
+}
+
 ul,
 ol {
-  padding-left: 2em;
   margin: 1em 0 0 0;
 }
-`
+`;
 export const StyledLink = styled(Link)`
-  border-bottom: 1px dotted ${colors.primary};
-
+  font-weight: 700;
   &:hover {
-    border-bottom-style: solid;
+    border-bottom: 1px solid ${colors.primary};
   }
-`
+`;
 
 export const Text = styled.p`
   line-height: 1.6;
   margin: 1em 0 0 0;
-`
+`;
+
+export const PageLede = styled.p`
+  line-height: 1.6;
+  margin: 1em 0 0 0;
+  font-size: 1.25rem;
+`;

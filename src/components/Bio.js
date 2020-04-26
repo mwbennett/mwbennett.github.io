@@ -55,7 +55,7 @@ const BioText = styled(Text)`
 `
 
 const Bio = () => {
-  const { authorAvatar, authorName, authorDescription } = useSiteMetadata()
+  const { authorAvatar, authorName, authorDescriptionLong } = useSiteMetadata()
   const { fixed } = useSiteImages(authorAvatar)
 
   return (
@@ -69,7 +69,7 @@ const Bio = () => {
       </figure>
       <section>
         <h4>About the author</h4>
-        <BioText dangerouslySetInnerHTML={{ __html: authorDescription }} />
+        <BioText dangerouslySetInnerHTML={{ __html: authorDescriptionLong }} />
       </section>
     </BioWrapper>
   )

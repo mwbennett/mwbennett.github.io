@@ -3,16 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
 import RelatedPosts from '../components/RelatedPosts';
-import { Text } from '../components/Commons';
-
-const MainTitle = styled.h1`
-  line-height: 1.5;
-  text-align: center;
-  font-size: 3rem;
-`;
+import { PageLede } from '../components/Commons';
+import useSiteMetadata from '../hooks/use-site-config';
 
 const SubTitle = styled.h2`
   padding-top: 40px;
@@ -62,25 +56,22 @@ const LandingPage = (props) => {
     }
   `);
 
-  const textContent = "I'm a full stack developer, drummer, basketball nerd, Oakland native. This is where I.";
+  const { authorDescriptionShort } = useSiteMetadata()
   return (
     <Layout location={props.location} noCover>
       <SEO title="Mark Bennett" />
-      <Wrapper>
-        <MainTitle>Hey it&apos;s Mark, welcome to my site.</MainTitle>
-        <Text>
-          {textContent}
-        </Text>
+      <PageLede>
+        {authorDescriptionShort}
+      </PageLede>
 
-        <SubTitle>My recent posts</SubTitle>
+      <SubTitle>Latest</SubTitle>
 
-        <RelatedPosts posts={posts.edges} />
+      <RelatedPosts posts={posts.edges} />
 
-        <SubTitle>Some projects I&apos;m working on</SubTitle>
+      <SubTitle>Projects</SubTitle>
 
-        {/* TODO: Add a data type and components for projects... */}
-        <RelatedPosts posts={projects.edges} />
-      </Wrapper>
+      {/* TODO: Add a data type and components for projects... */}
+      <RelatedPosts posts={projects.edges} />
     </Layout>
   );
 };

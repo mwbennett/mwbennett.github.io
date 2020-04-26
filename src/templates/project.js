@@ -2,12 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Wrapper from '../components/Wrapper';
 import Hero from '../components/Hero';
 import Article from '../components/Article';
 import PrevNextPost from '../components/PrevNextPost';
 import SEO from '../components/SEO';
-import Disqus from '../components/Disqus';
 
 const BlogPostTemplate = (props) => {
   const post = props.data.markdownRemark;
@@ -35,14 +33,9 @@ const BlogPostTemplate = (props) => {
         title={post.frontmatter.title}
       />
 
-      <Wrapper>
-        <Article post={post} />
-      </Wrapper>
+      <Article post={post} />
 
-      <Wrapper>
-        <Disqus slug={post.frontmatter.slug} title={post.frontmatter.title} />
-        <PrevNextPost previous={previous} next={next} />
-      </Wrapper>
+      <PrevNextPost previous={previous} next={next} />
     </Layout>
   );
 };

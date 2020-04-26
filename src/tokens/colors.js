@@ -12,17 +12,23 @@ const colors = {
   grey900: '#131315',
 
   white: '#ffffff',
-}
+
+  midnightBlue: '#1c336a',
+  aquamarine: '#7dffcf',
+  lightBlue: '#9fd0f8',
+};
 
 export default {
   ...colors,
   textLightest: colors.white,
   textLightestHover: colors.grey200,
   textLight: '#57595d',
-  primary: colors.grey500,
-  primaryAlpha: `rgba(32, 35, 42, 0.85)`,
-  text: colors.grey500,
-  background: colors.grey100,
+  primary: colors.midnightBlue,
+  primaryAlpha: 'rgba(32, 35, 42, 0.85)',
+  text: colors.midnightBlue,
+  background: colors.white,
+  accentPrimary: colors.lightBlue,
+  accentSecondard: colors.aquamarine,
   heartFooter: 'red',
   highlight_code_oneline: '#fff9d9',
   highlight_code_bg: '#ffa7c4',
@@ -31,4 +37,4 @@ export default {
   // testing
   // primary: `#03a9f4`,
   // primaryAlpha: `#03a9f4cc`,
-}
+};

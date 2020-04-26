@@ -1,32 +1,31 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
 
-import Layout from '../components/layout'
-import Wrapper from '../components/Wrapper'
-import SEO from '../components/SEO'
-import RelatedPosts from '../components/RelatedPosts'
-import { Text } from '../components/Commons'
-import { colors } from '../tokens'
+import Layout from '../components/layout';
+import SEO from '../components/SEO';
+import RelatedPosts from '../components/RelatedPosts';
+import { Text } from '../components/Commons';
+// import { colors } from '../tokens';
 
 const MainTitle = styled.h1`
   line-height: 1.5;
   text-align: center;
   font-size: 3rem;
-`
+`;
 
 const Ghost = styled.p`
   line-height: 1.5;
   text-align: center;
   font-size: 7rem;
-`
+`;
 
 const SubTitle = styled.h2`
   padding-top: 40px;
   line-height: 1.2;
   border-top: 1px solid #ececec;
   margin-top: 44px;
-`
+`;
 
 const NotFoundPage = props => {
   const data = useStaticQuery(graphql`
@@ -50,27 +49,25 @@ const NotFoundPage = props => {
         }
       }
     }
-  `)
+  `);
 
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={props.location} noCover={true}>
+    <Layout location={props.location} noCover>
       <SEO title="Page Not Found" />
-      <Wrapper>
-        <MainTitle>404 Page Not Found</MainTitle>
-        <Ghost>👻</Ghost>
-        <Text>
-          Looks like you've followed a broken link or entered a URL that doesn't
-          exist on this site.
-        </Text>
+      <MainTitle>404 Page Not Found</MainTitle>
+      <Ghost>👻</Ghost>
+      <Text>
+        Looks like you've followed a broken link or entered a URL that doesn't
+        exist on this site.
+      </Text>
 
-        <SubTitle>Recent Posts</SubTitle>
+      <SubTitle>Recent Posts</SubTitle>
 
-        <RelatedPosts posts={posts} />
-      </Wrapper>
+      <RelatedPosts posts={posts} />
     </Layout>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

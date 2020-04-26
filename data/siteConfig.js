@@ -4,9 +4,12 @@ module.exports = {
   authorName: 'Mark Bennett',
   twitterUsername: '_mrko_polo',
   authorAvatar: 'avatar.jpeg', // file in content/images
-  multilangPosts: true, // enable/disable flags in post lists
-  authorDescription: `
-  Mark is a full stack engineer from Oakland, CA.
+  multilangPosts: false, // enable/disable flags in post lists
+  authorDescriptionShort: `
+  Hey, I'm Mark Bennett, a software engineer based in Oakland, CA.
+  `,
+  authorDescriptionLong: `
+  Hey, I'm Mark. I'm a software engineer based in Oakland, CA. Currently, I'm building cloud integrations for Samsara, an Internet of Things (IoT) company that brings real-time visibility, analytics, and AI to business operations. I'm also a drummer, basketball nerd, and podcast junky.
   `,
   siteUrl: 'https://markbennett.io/',
   disqusSiteUrl: 'https://markbennett.io/',
@@ -15,7 +18,7 @@ module.exports = {
   siteCover: 'cover.jpg', // file in content/images
   googleAnalyticsId: 'UA-67868977-1',
   background_color: '#ffffff',
-  theme_color: '#222222',
+  theme_color: '#7dffcf',
   display: 'standalone',
   icon: 'content/images/gatsby-icon.png',
   postsPerPage: 6,
@@ -65,11 +68,11 @@ module.exports = {
           url: 'https://github.com/mwbennett/',
         },
         {
-          label: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/bennettwmark/',
+          label: 'Email',
+          url: 'mailto:bennettwmark@gmail.com',
         },
         {
-          label: 'Twitter',
+          label: '@_mrko_polo',
           url: 'https://twitter.com/_mrko_polo/',
         },
       ],
