@@ -1,25 +1,25 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { withPrefix } from 'gatsby'
-import useSiteMetadata from '../hooks/use-site-config'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { withPrefix } from 'gatsby';
+import useSiteMetadata from '../hooks/use-site-config';
 
 const SEO = props => {
-  const { isBlogPost, path = '', lang = 'en' } = props
+  const { isBlogPost, path = '', lang = 'en' } = props;
   const {
     siteTitle,
     siteUrl,
     siteCover,
     siteDescription,
     twitterUsername,
-  } = useSiteMetadata()
+  } = useSiteMetadata();
 
-  const title = props.title ? `${props.title} | ${siteTitle}` : siteTitle
-  const formatedSiteUrl = siteUrl.substring(0, siteUrl.length - 1)
-  const imagePath = props.imageFb || props.cover || withPrefix(siteCover)
-  const imagePathTwitter = props.imageTw || props.cover || withPrefix(siteCover)
-  const image = `${formatedSiteUrl}${imagePath}`
-  const imageTwitter = `${formatedSiteUrl}${imagePathTwitter}`
-  const description = props.description || siteDescription
+  const title = props.title ? `${props.title} | ${siteTitle}` : siteTitle;
+  const formatedSiteUrl = siteUrl.substring(0, siteUrl.length - 1);
+  const imagePath = props.imageFb || props.cover || withPrefix(siteCover);
+  const imagePathTwitter = props.imageTw || props.cover || withPrefix(siteCover);
+  const image = `${formatedSiteUrl}${imagePath}`;
+  const imageTwitter = `${formatedSiteUrl}${imagePathTwitter}`;
+  const description = props.description || siteDescription;
 
   return (
     <Helmet title={title}>
@@ -42,7 +42,7 @@ const SEO = props => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageTwitter} />
     </Helmet>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;

@@ -47,17 +47,18 @@ const HeaderLink = styled(Link)`
 
 
 const Header = () => {
-  const { headerLinks } = useSiteMetadata();
+  const { headerLinks, siteTitle } = useSiteMetadata();
 
   return (
     <HeaderWrapper>
-      <HeaderNav>
+      <h1>{`// ${siteTitle}`}</h1>
+      {/* <HeaderNav>
         {headerLinks.map((headerLink) => (
           <HeaderLink to={headerLink.url} key={headerLink.url}>
             {headerLink.label}
           </HeaderLink>
         ))}
-      </HeaderNav>
+      </HeaderNav> */}
     </HeaderWrapper>
   );
 };

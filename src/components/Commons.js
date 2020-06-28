@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 body {
@@ -26,10 +25,6 @@ img {
 a {
   text-decoration: none;
   color: ${colors.primary};
-}
-
-ul {
-  list-style-type: none;
 }
 
 ul,

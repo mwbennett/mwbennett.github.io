@@ -21,7 +21,7 @@ const ContentBody = styled.div`
   }
 
   & a {
-    border-bottom: 1px dotted rgba(162, 162, 162, 0.8);
+    border-bottom: 1px solid rgba(162, 162, 162, 0.8);
 
     &:hover {
       border-bottom-style: solid;

@@ -3,10 +3,10 @@ module.exports = {
   siteDescription: 'Personal blog and project portfolio for Mark Bennett.',
   authorName: 'Mark Bennett',
   twitterUsername: '_mrko_polo',
-  authorAvatar: 'avatar.jpeg', // file in content/images
+  authorAvatar: 'avatar.jpg', // file in content/images
   multilangPosts: false, // enable/disable flags in post lists
   authorDescriptionShort: `
-  Hey, I'm Mark Bennett, a software engineer based in Oakland, CA.
+  Software engineer based in Oakland, CA.
   `,
   authorDescriptionLong: `
   Hey, I'm Mark. I'm a software engineer based in Oakland, CA. Currently, I'm building cloud integrations for Samsara, an Internet of Things (IoT) company that brings real-time visibility, analytics, and AI to business operations. I'm also a drummer, basketball nerd, and podcast junky.
@@ -20,7 +20,7 @@ module.exports = {
   background_color: '#ffffff',
   theme_color: '#7dffcf',
   display: 'standalone',
-  icon: 'content/images/gatsby-icon.png',
+  icon: 'content/images/icon.svg',
   postsPerPage: 6,
   disqusShortname: 'maxpou',
   headerLinks: [
@@ -28,10 +28,10 @@ module.exports = {
       label: 'Home',
       url: '/',
     },
-    {
-      label: 'Blog',
-      url: '/blog',
-    },
+    // {
+    //   label: 'Blog',
+    //   url: '/blog',
+    // },
     {
       label: 'About',
       url: '/about',
@@ -43,37 +43,41 @@ module.exports = {
     url: 'https://github.com',
   },
   footerLinks: [
-    {
-      sectionName: 'Explore the site',
-      links: [
-        {
-          label: 'Home',
-          url: '/',
-        },
-        {
-          label: 'Blog',
-          url: '/blog',
-        },
-        {
-          label: 'About',
-          url: '/about',
-        },
-      ],
-    },
+    // {
+    //   sectionName: 'Explore the site',
+    //   links: [
+    //     {
+    //       label: 'Home',
+    //       url: '/',
+    //     },
+    //     {
+    //       label: 'Blog',
+    //       url: '/blog',
+    //     },
+    //     {
+    //       label: 'About',
+    //       url: '/about',
+    //     },
+    //   ],
+    // },
     {
       sectionName: 'Around the web',
       links: [
         {
-          label: 'Github',
+          label: 'GitHub',
           url: 'https://github.com/mwbennett/',
+        },
+        {
+          label: 'Twitter',
+          url: 'https://twitter.com/_mrko_polo/',
+        },
+        {
+          label: 'LinkedIn',
+          url: 'https://linkedin.com/in/bennettwmark/',
         },
         {
           label: 'Email',
           url: 'mailto:bennettwmark@gmail.com',
-        },
-        {
-          label: '@_mrko_polo',
-          url: 'https://twitter.com/_mrko_polo/',
         },
       ],
     },
