@@ -26,32 +26,24 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-b0509c3902a48a173e61.js"
+    "url": "webpack-runtime-09bcb47baca721a843ff.js"
   },
   {
     "url": "framework-13c59b4b3c9786e140ad.js"
   },
   {
-    "url": "app-2b9c8cf9b2d2ec9dd0c1.js"
+    "url": "app-ab32ce2aff403af1c63a.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-a80c80a072a2dec4a792.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "e36bc1f7e1cd367808cb1cf30c8fecfb"
-  },
-  {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "c355c8040c47a63bfb3360e4b7cb6553"
-  },
-  {
-    "url": "page-data/app-data.json",
-    "revision": "48d47040689beb1fc5814028fad8107d"
+    "revision": "f518ac934a3213bca982fb0286e49014"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "5f47f3b11fd8457170b0d9ba2da346f5"
+    "revision": "4403ecca988c8060cedd312bc22f3c27"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -70,12 +62,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/mwbennett.github.io`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/mwbennett.github.io/app-2b9c8cf9b2d2ec9dd0c1.js`))) {
+  if (!resources || !(await caches.match(`/app-ab32ce2aff403af1c63a.js`))) {
     return await fetch(event.request)
   }
 
@@ -88,7 +80,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/mwbennett.github.io/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
