@@ -1,0 +1,40 @@
+// 50 shades of grey generator
+// https://javisperez.github.io/tailwindcolorshades/#/?%233E4047=3E4047&tv=1
+const colors = {
+  grey100: '#ECECED',
+  grey200: '#CFCFD1',
+  grey300: '#B2B3B5',
+  grey400: '#78797E',
+  grey500: '#3E4047',
+  grey600: '#383A40',
+  grey700: '#25262B',
+  grey800: '#1C1D20',
+  grey900: '#131315',
+
+  white: '#ffffff',
+
+  midnightBlue: '#1c336a',
+  aquamarine: '#7dffcf',
+  lightBlue: '#9fd0f8',
+};
+
+export default {
+  ...colors,
+  textLightest: colors.white,
+  textLightestHover: colors.grey200,
+  textLight: '#57595d',
+  primary: colors.midnightBlue,
+  primaryAlpha: 'rgba(32, 35, 42, 0.85)',
+  text: colors.midnightBlue,
+  background: colors.white,
+  accentPrimary: colors.lightBlue,
+  accentSecondard: colors.aquamarine,
+  heartFooter: 'red',
+  highlight_code_oneline: '#fff9d9',
+  highlight_code_bg: '#ffa7c4',
+  highlight_code_marker: '#ffa7c4',
+  highlight_code_linebg: '#022a4b',
+  // testing
+  // primary: `#03a9f4`,
+  // primaryAlpha: `#03a9f4cc`,
+};
