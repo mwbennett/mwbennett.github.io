@@ -1,6 +1,6 @@
 # Mark Bennett's personal site
 
-Personal blog and portfolio site for Mark Bennett, published at http://markbennett.io
+Personal blog and portfolio site for Mark Bennett, published at https://markbennett.io
 
 Created with Gatsby using the gatsby-starter-morning-dew [starter kit](https://www.gatsbyjs.org/starters/maxpou/gatsby-starter-morning-dew/). Check out the [demo page](https://maxpou.github.io/gatsby-starter-morning-dew/).
 
