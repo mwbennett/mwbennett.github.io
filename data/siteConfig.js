@@ -14,7 +14,7 @@ module.exports = {
   siteUrl: 'https://markbennett.io/',
   disqusSiteUrl: 'https://markbennett.io/',
   // Prefixes all links. For cases when deployed to maxpou.fr/gatsby-starter-morning-dew/
-  // pathPrefix: '/gatsby-starter-morning-dew', // Note: it must *not* have a trailing slash.
+  // pathPrefix: '/mwbennett.github.io', // Note: it must *not* have a trailing slash.
   siteCover: 'cover.jpg', // file in content/images
   googleAnalyticsId: 'UA-67868977-1',
   background_color: '#ffffff',
