@@ -1,6 +1,6 @@
 ---
 title: 'Mark Bennett'
-slug: '/'
+slug: 'index'
 language: en
 disqus: false
 type: page
