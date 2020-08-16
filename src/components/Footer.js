@@ -23,6 +23,7 @@ const FooterWrapper = styled.footer`
       flex-direction: column;
       margin-bottom: 1em;
       padding-right: 1em;
+      font-size: 14px;
     }
   }
 
@@ -90,9 +91,9 @@ const Footer = () => {
 
   const FooterColumn = ({ column }) => (
     <div className="footer-col">
-      <h5 className="footer-title" key={column.sectionName}>
+      {/* <h5 className="footer-title" key={column.sectionName}>
         {column.sectionName}
-      </h5>
+      </h5> */}
       {column.links.map((item) => <FooterItem item={item} key={`footer-column-item-${item.label}`} />)}
     </div>
   );

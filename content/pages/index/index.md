@@ -3,12 +3,10 @@ title: 'Mark Bennett'
 slug: 'index'
 language: en
 disqus: false
-type: page
+type: content
 ---
 
-## Me
-
-Software engineer, drummer, basketball nerd, backpacker, Oakland native.
+### Software engineer, drummer, basketball nerd, Oakland native.
 
 I'm currently a Senior Software Engineer at [Samsara](https://samsara.com), a fleet management and industrial IoT company based in San Francisco.
 
