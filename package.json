@@ -71,7 +71,7 @@
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "format": "prettier --write 'src/**/*.js' 'data/siteConfig.js' 'gatsby-*.js'",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "generatePostPreviewImages": "node ./scripts/generatePostPreviewImages.js",
